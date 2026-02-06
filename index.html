@@ -7,169 +7,179 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-body {
+body{
     font-family: "Segoe UI", sans-serif;
-    background: linear-gradient(135deg, #f6efe6, #c9a77d);
-    color: #4a2d1b;
+    background: linear-gradient(135deg,#f7efe6,#c8a97e);
+    color:#3e2a1c;
 }
 
 /* ===== HEADER ===== */
-header {
-    padding: 25px 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: linear-gradient(135deg, #6f4b2e, #3e2a1c);
-    color: #fff;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+header{
+    padding:20px 50px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background: linear-gradient(135deg,#6f4b2e,#3e2a1c);
+    color:white;
 }
 
-header h1 {
-    letter-spacing: 2px;
+header h1{
+    letter-spacing:2px;
+    font-size:22px;
 }
 
-nav a {
-    color: #fff;
-    text-decoration: none;
-    margin-left: 25px;
-    font-weight: 500;
+/* ===== ICON NAV ===== */
+.icon-nav{
+    display:flex;
+    gap:18px;
+}
+
+.icon-nav a{
+    width:42px;
+    height:42px;
+    background: rgba(255,255,255,0.15);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.icon-nav a:hover{
+    background:#c8a97e;
+    color:#3e2a1c;
 }
 
 /* ===== HERO ===== */
-.hero {
-    position: relative;
-    padding: 90px 50px 140px;
-    background: linear-gradient(180deg, #fff8ef, #e4d0b0);
-    overflow: hidden;
+.hero{
+    padding:100px 50px 160px;
+    background: linear-gradient(180deg,#fffaf3,#e6d3b2);
+    position:relative;
+    overflow:hidden;
 }
 
-.hero::before {
-    content: "";
-    position: absolute;
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, #c19a6b, transparent 70%);
-    top: -150px;
-    right: -150px;
+.hero::after{
+    content:"";
+    position:absolute;
+    width:600px;
+    height:600px;
+    background: radial-gradient(circle,#c8a97e,transparent 65%);
+    bottom:-250px;
+    right:-250px;
 }
 
-.hero-content {
-    max-width: 650px;
-    position: relative;
-    z-index: 2;
+.hero-content{
+    max-width:700px;
+    position:relative;
+    z-index:2;
 }
 
-.hero h2 {
-    font-size: 42px;
-    margin-bottom: 20px;
+.hero h2{
+    font-size:44px;
+    margin-bottom:20px;
 }
 
-.hero h2 span {
-    color: #7a4f2b;
+.hero h2 span{
+    color:#8b5e3c;
 }
 
-.hero p {
-    font-size: 17px;
-    line-height: 1.8;
-    color: #5f3d26;
-    margin-bottom: 35px;
+.hero p{
+    font-size:17px;
+    line-height:1.9;
+    color:#5a3e2b;
+    margin-bottom:40px;
 }
 
-.hero button {
-    padding: 15px 35px;
-    border-radius: 40px;
-    border: none;
-    background: linear-gradient(135deg, #8b5e3c, #5a3e2b);
-    color: white;
-    font-size: 15px;
-    cursor: pointer;
-    box-shadow: 0 12px 30px rgba(90,60,30,0.45);
-    transition: 0.3s;
+/* BUTTON FIX – TIDAK TERPOTONG */
+.hero button{
+    padding:16px 38px;
+    border-radius:40px;
+    border:none;
+    background: linear-gradient(135deg,#8b5e3c,#5a3e2b);
+    color:white;
+    font-size:15px;
+    cursor:pointer;
+    box-shadow:0 15px 35px rgba(90,60,30,0.45);
 }
 
-.hero button:hover {
-    transform: translateY(-3px);
+/* ===== QUICK ICON MENU ===== */
+.quick-menu{
+    margin-top:-90px;
+    padding:0 50px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:30px;
+    position:relative;
+    z-index:3;
 }
 
-/* ===== WELCOME SECTION ===== */
-.welcome {
-    margin-top: -80px;
-    padding: 0 50px;
+.quick-card{
+    background: linear-gradient(180deg,#fffdf9,#f0e0c7);
+    padding:35px 25px;
+    border-radius:26px;
+    text-align:center;
+    box-shadow:0 20px 40px rgba(90,60,30,0.35);
+    transition:0.3s;
 }
 
-.welcome-box {
-    background: linear-gradient(180deg, #fffdf9, #f0e0c7);
-    border-radius: 30px;
-    padding: 50px;
-    box-shadow: 0 20px 40px rgba(90,60,30,0.35);
+.quick-card:hover{
+    transform:translateY(-10px);
 }
 
-.welcome-box h3 {
-    font-size: 28px;
-    margin-bottom: 15px;
+.quick-icon{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    background: linear-gradient(135deg,#8b5e3c,#5a3e2b);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:34px;
+    margin:0 auto 15px;
 }
 
-.welcome-box p {
-    line-height: 1.9;
-    color: #6b4a34;
+.quick-card h4{
+    margin-bottom:8px;
+    font-size:18px;
 }
 
-/* ===== FEATURE ===== */
-.features {
-    padding: 80px 50px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 35px;
+.quick-card p{
+    font-size:14px;
+    color:#6b4a34;
 }
 
-.feature-card {
-    background: linear-gradient(180deg, #fff8ee, #e8d3b2);
-    padding: 35px 30px;
-    border-radius: 28px;
-    box-shadow: 0 15px 30px rgba(90,60,30,0.3);
-    transition: 0.3s;
+/* ===== INFO SECTION ===== */
+.info{
+    padding:100px 50px 60px;
+    max-width:900px;
 }
 
-.feature-card:hover {
-    transform: translateY(-8px);
+.info h3{
+    font-size:30px;
+    margin-bottom:15px;
 }
 
-.icon {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #8b5e3c, #5a3e2b);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 34px;
-    margin-bottom: 20px;
-}
-
-.feature-card h4 {
-    margin-bottom: 10px;
-    font-size: 18px;
-}
-
-.feature-card p {
-    font-size: 14px;
-    color: #6b4a34;
+.info p{
+    line-height:1.9;
+    color:#5f3d26;
 }
 
 /* ===== FOOTER ===== */
-footer {
-    background: #3e2a1c;
-    color: #f5efe6;
-    text-align: center;
-    padding: 25px;
-    font-size: 13px;
+footer{
+    background:#3e2a1c;
+    color:#f5efe6;
+    text-align:center;
+    padding:25px;
+    font-size:13px;
 }
 </style>
 </head>
@@ -178,64 +188,60 @@ footer {
 
 <header>
     <h1>PERPUSTAKAAN HANI</h1>
-    <nav>
-        <a href="#">Beranda</a>
-        <a href="#">Koleksi</a>
-        <a href="#">Layanan</a>
-        <a href="#">Kontak</a>
-    </nav>
+
+    <div class="icon-nav">
+        <a href="#"><span class="material-icons">home</span></a>
+        <a href="#"><span class="material-icons">menu_book</span></a>
+        <a href="#"><span class="material-icons">search</span></a>
+        <a href="#"><span class="material-icons">person</span></a>
+    </div>
 </header>
 
 <section class="hero">
     <div class="hero-content">
-        <h2>SELAMAT DATANG DI <span>PERPUSTAKAAN HANI</span></h2>
+        <h2>Selamat Datang di <span>Perpustakaan Hani</span></h2>
         <p>
-            Perpustakaan Hani merupakan ruang literasi yang dirancang untuk
-            menghadirkan pengalaman membaca yang hangat, nyaman, dan inspiratif.
-            Kami percaya bahwa membaca bukan sekadar aktivitas, tetapi perjalanan
-            untuk memperluas wawasan dan memperkaya pemikiran.
+            Ruang literasi digital yang dirancang modern, nyaman, dan inspiratif
+            untuk mendukung budaya membaca serta pengembangan wawasan.
         </p>
-        <button>JELAJAHI KOLEKSI</button>
+        <button>Jelajahi Koleksi</button>
     </div>
 </section>
 
-<section class="welcome">
-    <div class="welcome-box">
-        <h3>Tentang Perpustakaan Hani</h3>
-        <p>
-            Website ini menjadi pusat informasi dan akses koleksi bacaan yang
-            tersusun rapi dan mudah digunakan. Dengan tampilan yang ramah dan
-            sistematis, Perpustakaan Hani hadir untuk mendorong minat baca,
-            mendukung pembelajaran, serta menjadi teman setia dalam pencarian
-            ilmu pengetahuan.
-        </p>
-    </div>
-</section>
-
-<section class="features">
-    <div class="feature-card">
-        <div class="icon">
-            <span class="material-icons">menu_book</span>
-        </div>
-        <h4>Koleksi Terpilih</h4>
-        <p>Buku-buku diseleksi untuk menunjang literasi, pendidikan, dan wawasan.</p>
-    </div>
-
-    <div class="feature-card">
-        <div class="icon">
-            <span class="material-icons">search</span>
-        </div>
-        <h4>Pencarian Mudah</h4>
-        <p>Temukan buku yang Anda cari dengan cepat dan efisien.</p>
-    </div>
-
-    <div class="feature-card">
-        <div class="icon">
+<section class="quick-menu">
+    <div class="quick-card">
+        <div class="quick-icon">
             <span class="material-icons">auto_stories</span>
         </div>
-        <h4>Ruang Membaca Nyaman</h4>
-        <p>Tampilan yang mendukung kenyamanan membaca lebih lama.</p>
+        <h4>Koleksi Buku</h4>
+        <p>Akses berbagai bacaan berkualitas dalam satu tempat.</p>
     </div>
+
+    <div class="quick-card">
+        <div class="quick-icon">
+            <span class="material-icons">search</span>
+        </div>
+        <h4>Cari Buku</h4>
+        <p>Temukan buku dengan cepat dan mudah.</p>
+    </div>
+
+    <div class="quick-card">
+        <div class="quick-icon">
+            <span class="material-icons">library_books</span>
+        </div>
+        <h4>Layanan</h4>
+        <p>Informasi layanan perpustakaan secara lengkap.</p>
+    </div>
+</section>
+
+<section class="info">
+    <h3>Tentang Perpustakaan Hani</h3>
+    <p>
+        Perpustakaan Hani hadir sebagai media literasi digital yang menggabungkan
+        tampilan modern dengan nuansa hangat. Website ini dirancang untuk
+        memberikan pengalaman membaca yang nyaman, terstruktur, dan menarik
+        bagi seluruh pengunjung.
+    </p>
 </section>
 
 <footer>
