@@ -14,8 +14,8 @@
 }
 
 body{
-    font-family: "Segoe UI", sans-serif;
-    background: linear-gradient(135deg,#f7efe6,#c8a97e);
+    font-family:"Segoe UI",sans-serif;
+    background:linear-gradient(135deg,#f7efe6,#c8a97e);
     color:#3e2a1c;
 }
 
@@ -25,26 +25,26 @@ header{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    background: linear-gradient(135deg,#6f4b2e,#3e2a1c);
+    background:linear-gradient(135deg,#6f4b2e,#3e2a1c);
     color:white;
 }
 
 header h1{
-    letter-spacing:2px;
+    letter-spacing:3px;
     font-size:22px;
 }
 
-/* ===== ICON NAV ===== */
+/* ICON NAV (HANYA HOME & PROFIL) */
 .icon-nav{
     display:flex;
-    gap:18px;
+    gap:16px;
 }
 
 .icon-nav a{
     width:42px;
     height:42px;
-    background: rgba(255,255,255,0.15);
     border-radius:50%;
+    background:rgba(255,255,255,0.15);
     display:flex;
     align-items:center;
     justify-content:center;
@@ -60,8 +60,8 @@ header h1{
 
 /* ===== HERO ===== */
 .hero{
-    padding:100px 50px 160px;
-    background: linear-gradient(180deg,#fffaf3,#e6d3b2);
+    padding:110px 50px 170px;
+    background:linear-gradient(180deg,#fffaf3,#e6d3b2);
     position:relative;
     overflow:hidden;
 }
@@ -69,22 +69,23 @@ header h1{
 .hero::after{
     content:"";
     position:absolute;
-    width:600px;
-    height:600px;
-    background: radial-gradient(circle,#c8a97e,transparent 65%);
-    bottom:-250px;
+    width:650px;
+    height:650px;
+    background:radial-gradient(circle,#c8a97e,transparent 65%);
+    bottom:-300px;
     right:-250px;
 }
 
 .hero-content{
-    max-width:700px;
+    max-width:720px;
     position:relative;
     z-index:2;
 }
 
 .hero h2{
-    font-size:44px;
-    margin-bottom:20px;
+    font-size:46px;
+    margin-bottom:22px;
+    letter-spacing:2px;
 }
 
 .hero h2 span{
@@ -95,38 +96,37 @@ header h1{
     font-size:17px;
     line-height:1.9;
     color:#5a3e2b;
-    margin-bottom:40px;
+    margin-bottom:42px;
 }
 
-/* BUTTON FIX – TIDAK TERPOTONG */
 .hero button{
-    padding:16px 38px;
+    padding:16px 40px;
     border-radius:40px;
     border:none;
-    background: linear-gradient(135deg,#8b5e3c,#5a3e2b);
+    background:linear-gradient(135deg,#8b5e3c,#5a3e2b);
     color:white;
     font-size:15px;
     cursor:pointer;
-    box-shadow:0 15px 35px rgba(90,60,30,0.45);
+    box-shadow:0 16px 35px rgba(90,60,30,0.45);
 }
 
-/* ===== QUICK ICON MENU ===== */
+/* ===== QUICK MENU ===== */
 .quick-menu{
-    margin-top:-90px;
+    margin-top:-95px;
     padding:0 50px;
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:30px;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:32px;
     position:relative;
     z-index:3;
 }
 
 .quick-card{
-    background: linear-gradient(180deg,#fffdf9,#f0e0c7);
-    padding:35px 25px;
-    border-radius:26px;
+    background:linear-gradient(180deg,#fffdf9,#f0e0c7);
+    padding:38px 28px;
+    border-radius:28px;
     text-align:center;
-    box-shadow:0 20px 40px rgba(90,60,30,0.35);
+    box-shadow:0 22px 45px rgba(90,60,30,0.35);
     transition:0.3s;
 }
 
@@ -135,20 +135,20 @@ header h1{
 }
 
 .quick-icon{
-    width:70px;
-    height:70px;
+    width:72px;
+    height:72px;
     border-radius:50%;
-    background: linear-gradient(135deg,#8b5e3c,#5a3e2b);
+    background:linear-gradient(135deg,#8b5e3c,#5a3e2b);
     color:white;
     display:flex;
     align-items:center;
     justify-content:center;
     font-size:34px;
-    margin:0 auto 15px;
+    margin:0 auto 18px;
 }
 
 .quick-card h4{
-    margin-bottom:8px;
+    margin-bottom:10px;
     font-size:18px;
 }
 
@@ -157,20 +157,47 @@ header h1{
     color:#6b4a34;
 }
 
-/* ===== INFO SECTION ===== */
-.info{
-    padding:100px 50px 60px;
-    max-width:900px;
+/* ===== WHY SECTION (BARU) ===== */
+.why{
+    padding:120px 50px 80px;
+    background:linear-gradient(180deg,#fdf8f1,#ead6b6);
 }
 
-.info h3{
-    font-size:30px;
-    margin-bottom:15px;
+.why h3{
+    text-align:center;
+    font-size:34px;
+    margin-bottom:55px;
 }
 
-.info p{
-    line-height:1.9;
-    color:#5f3d26;
+.why-grid{
+    max-width:1000px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:35px;
+}
+
+.why-item{
+    background:#fffaf3;
+    border-radius:26px;
+    padding:35px;
+    box-shadow:0 18px 35px rgba(90,60,30,0.25);
+}
+
+.why-item span{
+    font-size:36px;
+    font-weight:bold;
+    color:#8b5e3c;
+}
+
+.why-item h4{
+    margin:12px 0;
+}
+
+.why-item p{
+    font-size:14px;
+    line-height:1.8;
+    color:#6b4a34;
 }
 
 /* ===== FOOTER ===== */
@@ -188,60 +215,66 @@ footer{
 
 <header>
     <h1>PERPUSTAKAAN HANI</h1>
-
     <div class="icon-nav">
         <a href="#"><span class="material-icons">home</span></a>
-        <a href="#"><span class="material-icons">menu_book</span></a>
-        <a href="#"><span class="material-icons">search</span></a>
         <a href="#"><span class="material-icons">person</span></a>
     </div>
 </header>
 
 <section class="hero">
     <div class="hero-content">
-        <h2>Selamat Datang di <span>Perpustakaan Hani</span></h2>
+        <h2>SELAMAT DATANG DI <span>PERPUSTAKAAN HANI</span></h2>
         <p>
-            Ruang literasi digital yang dirancang modern, nyaman, dan inspiratif
-            untuk mendukung budaya membaca serta pengembangan wawasan.
+            Perpustakaan Hani merupakan ruang literasi digital yang dirancang
+            secara modern untuk menciptakan pengalaman membaca yang nyaman,
+            terstruktur, dan inspiratif bagi seluruh pengunjung.
         </p>
-        <button>Jelajahi Koleksi</button>
+        <button>JELAJAHI KOLEKSI</button>
     </div>
 </section>
 
 <section class="quick-menu">
     <div class="quick-card">
-        <div class="quick-icon">
-            <span class="material-icons">auto_stories</span>
-        </div>
+        <div class="quick-icon"><span class="material-icons">auto_stories</span></div>
         <h4>Koleksi Buku</h4>
-        <p>Akses berbagai bacaan berkualitas dalam satu tempat.</p>
+        <p>Beragam bacaan berkualitas yang siap memperluas wawasan.</p>
     </div>
 
     <div class="quick-card">
-        <div class="quick-icon">
-            <span class="material-icons">search</span>
-        </div>
-        <h4>Cari Buku</h4>
-        <p>Temukan buku dengan cepat dan mudah.</p>
+        <div class="quick-icon"><span class="material-icons">search</span></div>
+        <h4>Pencarian Cepat</h4>
+        <p>Sistem pencarian praktis dan mudah digunakan.</p>
     </div>
 
     <div class="quick-card">
-        <div class="quick-icon">
-            <span class="material-icons">library_books</span>
-        </div>
-        <h4>Layanan</h4>
-        <p>Informasi layanan perpustakaan secara lengkap.</p>
+        <div class="quick-icon"><span class="material-icons">library_books</span></div>
+        <h4>Layanan Perpustakaan</h4>
+        <p>Informasi layanan tersaji rapi dan jelas.</p>
     </div>
 </section>
 
-<section class="info">
-    <h3>Tentang Perpustakaan Hani</h3>
-    <p>
-        Perpustakaan Hani hadir sebagai media literasi digital yang menggabungkan
-        tampilan modern dengan nuansa hangat. Website ini dirancang untuk
-        memberikan pengalaman membaca yang nyaman, terstruktur, dan menarik
-        bagi seluruh pengunjung.
-    </p>
+<section class="why">
+    <h3>KENAPA MEMILIH PERPUSTAKAAN HANI?</h3>
+    <div class="why-grid">
+        <div class="why-item">
+            <span>01</span>
+            <h4>Desain Modern</h4>
+            <p>Tampilan dirancang mengikuti tren UI modern tanpa meninggalkan
+               nuansa hangat perpustakaan.</p>
+        </div>
+
+        <div class="why-item">
+            <span>02</span>
+            <h4>Akses Mudah</h4>
+            <p>Struktur website sederhana sehingga pengunjung langsung fokus membaca.</p>
+        </div>
+
+        <div class="why-item">
+            <span>03</span>
+            <h4>Mendukung Literasi</h4>
+            <p>Menjadi ruang digital yang mendorong kebiasaan membaca dan belajar.</p>
+        </div>
+    </div>
 </section>
 
 <footer>
