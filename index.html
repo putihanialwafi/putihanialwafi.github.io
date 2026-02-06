@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<title>Perpustakaan Hani</title>
+<title>PERPUSTAKAAN HANI</title>
 
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
@@ -21,30 +21,32 @@ body{
 
 /* ===== HEADER ===== */
 header{
-    padding:20px 50px;
+    padding:22px 55px;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    background:linear-gradient(135deg,#6f4b2e,#3e2a1c);
+    background:linear-gradient(135deg,#6b4527,#3a2416);
     color:white;
+    position:relative;
+    z-index:10;
 }
 
 header h1{
-    letter-spacing:3px;
     font-size:22px;
+    letter-spacing:3px;
 }
 
-/* ICON NAV (HANYA HOME & PROFIL) */
+/* ICON NAV */
 .icon-nav{
     display:flex;
     gap:16px;
 }
 
 .icon-nav a{
-    width:42px;
-    height:42px;
+    width:44px;
+    height:44px;
     border-radius:50%;
-    background:rgba(255,255,255,0.15);
+    background:rgba(255,255,255,0.18);
     display:flex;
     align-items:center;
     justify-content:center;
@@ -58,34 +60,40 @@ header h1{
     color:#3e2a1c;
 }
 
-/* ===== HERO ===== */
+/* ===== HERO BARU (LEBIH MENARIK) ===== */
 .hero{
-    padding:110px 50px 170px;
-    background:linear-gradient(180deg,#fffaf3,#e6d3b2);
+    min-height:78vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:80px 30px 140px;
+    background:
+        radial-gradient(circle at top left,#e0c29a,transparent 55%),
+        radial-gradient(circle at bottom right,#b48a5a,transparent 55%),
+        linear-gradient(180deg,#fffaf3,#e6d3b2);
     position:relative;
-    overflow:hidden;
 }
 
 .hero::after{
     content:"";
     position:absolute;
-    width:650px;
-    height:650px;
-    background:radial-gradient(circle,#c8a97e,transparent 65%);
-    bottom:-300px;
-    right:-250px;
+    bottom:-120px;
+    left:50%;
+    transform:translateX(-50%);
+    width:85%;
+    height:160px;
+    background:linear-gradient(180deg,transparent,#f7efe6);
 }
 
 .hero-content{
     max-width:720px;
-    position:relative;
-    z-index:2;
 }
 
 .hero h2{
-    font-size:46px;
-    margin-bottom:22px;
+    font-size:48px;
     letter-spacing:2px;
+    margin-bottom:22px;
 }
 
 .hero h2 span{
@@ -100,43 +108,43 @@ header h1{
 }
 
 .hero button{
-    padding:16px 40px;
+    padding:16px 42px;
     border-radius:40px;
     border:none;
     background:linear-gradient(135deg,#8b5e3c,#5a3e2b);
     color:white;
     font-size:15px;
     cursor:pointer;
-    box-shadow:0 16px 35px rgba(90,60,30,0.45);
+    box-shadow:0 18px 40px rgba(90,60,30,0.45);
 }
 
-/* ===== QUICK MENU ===== */
+/* ===== CARD SECTION (KAMU SUKA) ===== */
 .quick-menu{
-    margin-top:-95px;
-    padding:0 50px;
+    margin-top:-90px;
+    padding:0 60px 90px;
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:32px;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:36px;
     position:relative;
-    z-index:3;
+    z-index:5;
 }
 
 .quick-card{
     background:linear-gradient(180deg,#fffdf9,#f0e0c7);
-    padding:38px 28px;
-    border-radius:28px;
+    padding:42px 30px;
+    border-radius:30px;
     text-align:center;
-    box-shadow:0 22px 45px rgba(90,60,30,0.35);
-    transition:0.3s;
+    box-shadow:0 24px 45px rgba(90,60,30,0.35);
+    transition:0.35s;
 }
 
 .quick-card:hover{
-    transform:translateY(-10px);
+    transform:translateY(-12px);
 }
 
 .quick-icon{
-    width:72px;
-    height:72px;
+    width:74px;
+    height:74px;
     border-radius:50%;
     background:linear-gradient(135deg,#8b5e3c,#5a3e2b);
     color:white;
@@ -148,64 +156,22 @@ header h1{
 }
 
 .quick-card h4{
+    font-size:19px;
     margin-bottom:10px;
-    font-size:18px;
 }
 
 .quick-card p{
     font-size:14px;
     color:#6b4a34;
-}
-
-/* ===== WHY SECTION (BARU) ===== */
-.why{
-    padding:120px 50px 80px;
-    background:linear-gradient(180deg,#fdf8f1,#ead6b6);
-}
-
-.why h3{
-    text-align:center;
-    font-size:34px;
-    margin-bottom:55px;
-}
-
-.why-grid{
-    max-width:1000px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-    gap:35px;
-}
-
-.why-item{
-    background:#fffaf3;
-    border-radius:26px;
-    padding:35px;
-    box-shadow:0 18px 35px rgba(90,60,30,0.25);
-}
-
-.why-item span{
-    font-size:36px;
-    font-weight:bold;
-    color:#8b5e3c;
-}
-
-.why-item h4{
-    margin:12px 0;
-}
-
-.why-item p{
-    font-size:14px;
-    line-height:1.8;
-    color:#6b4a34;
+    line-height:1.7;
 }
 
 /* ===== FOOTER ===== */
 footer{
-    background:#3e2a1c;
+    background:#3a2416;
     color:#f5efe6;
     text-align:center;
-    padding:25px;
+    padding:26px;
     font-size:13px;
 }
 </style>
@@ -225,9 +191,8 @@ footer{
     <div class="hero-content">
         <h2>SELAMAT DATANG DI <span>PERPUSTAKAAN HANI</span></h2>
         <p>
-            Perpustakaan Hani merupakan ruang literasi digital yang dirancang
-            secara modern untuk menciptakan pengalaman membaca yang nyaman,
-            terstruktur, dan inspiratif bagi seluruh pengunjung.
+            Ruang literasi digital yang dirancang untuk menghadirkan pengalaman
+            membaca yang nyaman, modern, dan menyenangkan dalam satu tempat.
         </p>
         <button>JELAJAHI KOLEKSI</button>
     </div>
@@ -237,43 +202,19 @@ footer{
     <div class="quick-card">
         <div class="quick-icon"><span class="material-icons">auto_stories</span></div>
         <h4>Koleksi Buku</h4>
-        <p>Beragam bacaan berkualitas yang siap memperluas wawasan.</p>
+        <p>Kumpulan bacaan pilihan untuk memperluas wawasan dan pengetahuan.</p>
     </div>
 
     <div class="quick-card">
         <div class="quick-icon"><span class="material-icons">search</span></div>
-        <h4>Pencarian Cepat</h4>
-        <p>Sistem pencarian praktis dan mudah digunakan.</p>
+        <h4>Pencarian Mudah</h4>
+        <p>Temukan buku dengan cepat melalui sistem pencarian yang sederhana.</p>
     </div>
 
     <div class="quick-card">
         <div class="quick-icon"><span class="material-icons">library_books</span></div>
         <h4>Layanan Perpustakaan</h4>
-        <p>Informasi layanan tersaji rapi dan jelas.</p>
-    </div>
-</section>
-
-<section class="why">
-    <h3>KENAPA MEMILIH PERPUSTAKAAN HANI?</h3>
-    <div class="why-grid">
-        <div class="why-item">
-            <span>01</span>
-            <h4>Desain Modern</h4>
-            <p>Tampilan dirancang mengikuti tren UI modern tanpa meninggalkan
-               nuansa hangat perpustakaan.</p>
-        </div>
-
-        <div class="why-item">
-            <span>02</span>
-            <h4>Akses Mudah</h4>
-            <p>Struktur website sederhana sehingga pengunjung langsung fokus membaca.</p>
-        </div>
-
-        <div class="why-item">
-            <span>03</span>
-            <h4>Mendukung Literasi</h4>
-            <p>Menjadi ruang digital yang mendorong kebiasaan membaca dan belajar.</p>
-        </div>
+        <p>Informasi layanan tersaji rapi dan mudah diakses.</p>
     </div>
 </section>
 
