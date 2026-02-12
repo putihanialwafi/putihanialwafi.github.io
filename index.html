@@ -60,7 +60,7 @@ header h1{
     color:#3e2a1c;
 }
 
-/* ===== HERO BARU (LEBIH MENARIK) ===== */
+/* ===== HERO ===== */
 .hero{
     min-height:78vh;
     display:flex;
@@ -118,7 +118,7 @@ header h1{
     box-shadow:0 18px 40px rgba(90,60,30,0.45);
 }
 
-/* ===== CARD SECTION (KAMU SUKA) ===== */
+/* ===== CARD SECTION ===== */
 .quick-menu{
     margin-top:-90px;
     padding:0 60px 90px;
@@ -166,13 +166,34 @@ header h1{
     line-height:1.7;
 }
 
-/* ===== FOOTER ===== */
+/* ===== FOOTER IDENTITAS ===== */
 footer{
     background:#3a2416;
     color:#f5efe6;
     text-align:center;
-    padding:26px;
+    padding:30px 20px;
+    font-size:14px;
+}
+
+.footer-links{
+    margin-top:15px;
+}
+
+.footer-links a{
+    display:inline-block;
+    margin:8px 12px;
+    padding:8px 18px;
+    border-radius:25px;
+    background:linear-gradient(135deg,#8b5e3c,#5a3e2b);
+    color:white;
+    text-decoration:none;
     font-size:13px;
+    transition:0.3s;
+}
+
+.footer-links a:hover{
+    background:#c8a97e;
+    color:#3e2a1c;
 }
 </style>
 </head>
@@ -219,7 +240,15 @@ footer{
 </section>
 
 <footer>
-    © 2026 PERPUSTAKAAN HANI
+    <div>© 2026 PERPUSTAKAAN HANI</div>
+    <div class="footer-links">
+        <a href="https://youtu.be/c6PeWqj-moU?si=nDu0KWSlEdvuGkYF" target="_blank">
+            Kunjungi YouTube Saya
+        </a>
+        <a href="cv.html">
+            Lihat Curriculum Vitae
+        </a>
+    </div>
 </footer>
 
 </body>
