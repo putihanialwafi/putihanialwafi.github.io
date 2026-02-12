@@ -155,18 +155,38 @@ header h1{
     margin:0 auto 18px;
 }
 
-.quick-card h4{
-    font-size:19px;
-    margin-bottom:10px;
+/* ===== AUDIO VIDEO SECTION ===== */
+.media-section{
+    padding:80px 60px;
+    text-align:center;
 }
 
-.quick-card p{
-    font-size:14px;
-    color:#6b4a34;
-    line-height:1.7;
+.media-section h3{
+    font-size:28px;
+    margin-bottom:40px;
+    letter-spacing:2px;
 }
 
-/* ===== FOOTER IDENTITAS ===== */
+.media-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:40px;
+}
+
+.media-card{
+    background:linear-gradient(180deg,#fffdf9,#f0e0c7);
+    padding:30px;
+    border-radius:25px;
+    box-shadow:0 20px 40px rgba(90,60,30,0.35);
+}
+
+.media-card audio,
+.media-card video{
+    width:100%;
+    border-radius:15px;
+}
+
+/* ===== FOOTER ===== */
 footer{
     background:#3a2416;
     color:#f5efe6;
@@ -236,6 +256,25 @@ footer{
         <div class="quick-icon"><span class="material-icons">library_books</span></div>
         <h4>Layanan Perpustakaan</h4>
         <p>Informasi layanan tersaji rapi dan mudah diakses.</p>
+    </div>
+</section>
+
+<section class="media-section">
+    <h3>AUDIO DAN VIDEO</h3>
+
+    <div class="media-container">
+        <div class="media-card">
+            <audio controls>
+                <source src="lushlife.mp3" type="audio/mp3">
+                Tidak mendukung audio
+            </audio>
+        </div>
+
+        <div class="media-card">
+            <video controls>
+                <source src="video_lushlife.mp4" type="video/mp4">
+            </video>
+        </div>
     </div>
 </section>
 
