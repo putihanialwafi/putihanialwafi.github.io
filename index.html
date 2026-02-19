@@ -21,41 +21,44 @@ body{
 
 /* ===== HEADER ===== */
 header{
-    padding:22px 55px;
+    padding:20px 55px;
     display:flex;
     justify-content:space-between;
     align-items:center;
     background:linear-gradient(135deg,#6b4527,#3a2416);
     color:white;
-    position:relative;
-    z-index:10;
 }
 
-header h1{
-    font-size:22px;
+.logo{
+    font-size:20px;
     letter-spacing:3px;
+    font-weight:bold;
 }
 
-/* ICON NAV */
-.icon-nav{
+/* NAVIGATION */
+.nav-menu{
     display:flex;
-    gap:16px;
+    gap:28px;
+    align-items:center;
 }
 
-.icon-nav a{
-    width:44px;
-    height:44px;
-    border-radius:50%;
-    background:rgba(255,255,255,0.18);
+.nav-menu a{
     display:flex;
     align-items:center;
-    justify-content:center;
-    color:white;
+    gap:6px;
     text-decoration:none;
+    color:white;
+    font-size:14px;
+    padding:8px 12px;
+    border-radius:20px;
     transition:0.3s;
 }
 
-.icon-nav a:hover{
+.nav-menu a .material-icons{
+    font-size:18px;
+}
+
+.nav-menu a:hover{
     background:#c8a97e;
     color:#3e2a1c;
 }
@@ -221,11 +224,15 @@ footer{
 <body>
 
 <header>
-    <h1>PERPUSTAKAAN HANI</h1>
-    <div class="icon-nav">
-        <a href="#"><span class="material-icons">home</span></a>
-        <a href="#"><span class="material-icons">person</span></a>
-    </div>
+    <div class="logo">PERPUSTAKAAN HANI</div>
+    <nav class="nav-menu">
+        <a href="#"><span class="material-icons">home</span>Beranda</a>
+        <a href="#"><span class="material-icons">menu_book</span>Koleksi</a>
+        <a href="#"><span class="material-icons">info</span>Tentang</a>
+        <a href="#"><span class="material-icons">perm_media</span>Media</a>
+        <a href="#"><span class="material-icons">call</span>Kontak</a>
+        <a href="login.html"><span class="material-icons">login</span>Login</a>
+    </nav>
 </header>
 
 <section class="hero">
