@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Login - Perpustakaan Hani</title>
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<style>
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin:0;
+    font-family:"Segoe UI",sans-serif;
+    background:linear-gradient(135deg,#f5e6d3,#8b5e3c);
+}
+
+/* ===== HEADER ===== */
+header{
+    display:flex;
+    align-items:center;
+    padding:15px 25px;
+    background:linear-gradient(135deg,#6b4527,#3a2416);
+    color:white;
+}
+
+.back-btn{
+    color:white;
+    text-decoration:none;
+    font-size:24px;
+    margin-right:15px;
+    transition:0.3s;
+}
+
+.back-btn:hover{
+    color:#f5e6d3;
+}
+
+header h1{
+    font-size:18px;
+    letter-spacing:1px;
+}
+
+/* ===== CONTAINER ===== */
+.container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:calc(100vh - 60px);
+}
+
+/* Card */
+.box{
+    background:white;
+    padding:40px;
+    width:360px;
+    border-radius:18px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.15);
+}
+
+h2{
+    text-align:center;
+    color:#8b5e3c;
+    margin-bottom:25px;
+    font-weight:600;
+}
+
+/* Input umum */
+input{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border-radius:10px;
+    border:1px solid #ddd;
+    outline:none;
+    transition:0.3s;
+}
+
+input:focus{
+    border-color:#8b5e3c;
+}
+
+/* Password wrapper */
+.password-box{
+    position:relative;
+    width:100%;
+}
+
+.password-box input{
+    padding-right:45px;
+}
+
+/* Icon mata */
+.toggle{
+    position:absolute;
+    right:12px;
+    top:50%;
+    transform:translateY(-50%);
+    cursor:pointer;
+    color:#8b5e3c;
+    font-size:20px;
+    user-select:none;
+}
+
+/* Button */
+button{
+    width:100%;
+    padding:12px;
+    background:#8b5e3c;
+    color:white;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    margin-top:15px;
+    font-weight:500;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#6e462c;
+}
+
+/* Link daftar */
+.link{
+    text-align:center;
+    margin-top:20px;
+    font-size:14px;
+}
+
+.link a{
+    text-decoration:none;
+    color:#8b5e3c;
+    font-weight:500;
+}
+
+.link a:hover{
+    text-decoration:underline;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <a href="index.html" class="back-btn">
+        <span class="material-icons">arrow_back</span>
+    </a>
+    <h1>LOGIN PERPUSTAKAAN HANI</h1>
+</header>
+
+<div class="container">
+    <div class="box">
+        <h2>Login Anggota</h2>
+        
+        <form>
+            <input type="text" placeholder="Username" required>
+
+            <div class="password-box">
+                <input type="password" id="password" placeholder="Password" required>
+                <span class="material-icons toggle" onclick="togglePassword()">
+                    visibility_off
+                </span>
+            </div>
+
+            <button type="submit">Masuk</button>
+        </form>
+
+        <div class="link">
+            Belum punya akun? <br>
+            <a href="daftar.html">Daftar Anggota</a>
+        </div>
+    </div>
+</div>
+
+<script>
+function togglePassword(){
+    const password = document.getElementById("password");
+    const icon = document.querySelector(".toggle");
+
+    if(password.type === "password"){
+        password.type = "text";
+        icon.textContent = "visibility";
+    } else {
+        password.type = "password";
+        icon.textContent = "visibility_off";
+    }
+}
+</script>
+
+</body>
+</html>
