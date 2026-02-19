@@ -154,11 +154,23 @@ header{
     gap:40px;
 }
 
+/* ===== MEDIA CARD / AUDIO & VIDEO KOTAK PUTIH ===== */
 .media-card{
-    background:linear-gradient(180deg,#fffdf9,#f0e0c7);
-    padding:30px;
-    border-radius:25px;
-    box-shadow:0 20px 40px rgba(90,60,30,0.35);
+    background: linear-gradient(180deg,#fffdf9,#f0e0c7); /* cream putih */
+    padding: 20px;
+    border-radius: 25px;
+    box-shadow: 0 15px 35px rgba(90,60,30,0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.media-card audio,
+.media-card video{
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 15px;
 }
 
 /* ===== FOOTER ===== */
@@ -226,7 +238,7 @@ footer{
         <a href="#">Beranda</a>
         <a href="#">Koleksi</a>
         <a href="#">Media</a>
-        <a href="login" target="_blank">Login</a>
+        <a href="login.html" target="_blank">Login</a>
         <a href="daftar.html" target="_blank">Daftar</a>
     </nav>
 </header>
@@ -261,12 +273,15 @@ footer{
 
 <section class="media-section">
     <h3>AUDIO DAN VIDEO</h3>
+
     <div class="media-container">
         <div class="media-card">
             <audio controls>
                 <source src="lushlife.mp3" type="audio/mp3">
+                Tidak mendukung audio
             </audio>
         </div>
+
         <div class="media-card">
             <video controls>
                 <source src="video homepage.mp4" type="video/mp4">
@@ -290,7 +305,7 @@ footer{
             <p>Alamat: Medan, Sumatera Utara</p>
             <a href="https://instagram.com/" target="_blank">Instagram</a>
             <a href="mailto:email@gmail.com">Email</a>
-            <p>No Telepon: 081371886934</p>
+            <p>No Telepon: (+62)813-7188-6934</p>
         </div>
     </div>
 </footer>
