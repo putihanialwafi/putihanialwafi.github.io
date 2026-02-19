@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Daftar - PERPUSTAKAAN HANI</title>
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:"Segoe UI",sans-serif;
+    background:linear-gradient(135deg,#f7efe6,#c8a97e);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+}
+
+/* Back Button */
+.back-btn{
+    position:absolute;
+    top:25px;
+    left:25px;
+    text-decoration:none;
+    color:#3e2a1c;
+    font-size:28px;
+    transition:0.3s;
+}
+
+.back-btn:hover{
+    transform:translateX(-6px);
+    color:#8b5e3c;
+}
+
+/* Form Box */
+.form-container{
+    background:linear-gradient(180deg,#fffdf9,#f0e0c7);
+    padding:50px 40px;
+    border-radius:30px;
+    width:420px;
+    box-shadow:0 25px 50px rgba(90,60,30,0.4);
+    text-align:center;
+    transition:0.3s;
+}
+
+.form-container:hover{
+    transform:translateY(-8px);
+}
+
+.form-container h2{
+    margin-bottom:30px;
+    color:#5a3e2b;
+    letter-spacing:1px;
+}
+
+.input-group{
+    margin-bottom:15px;
+    text-align:left;
+}
+
+.input-group label{
+    font-size:13px;
+    margin-bottom:6px;
+    display:block;
+}
+
+.input-group input{
+    width:100%;
+    padding:12px 14px;
+    border-radius:15px;
+    border:1px solid #d6bfa1;
+    outline:none;
+    transition:0.3s;
+}
+
+.input-group input:focus{
+    border-color:#8b5e3c;
+    box-shadow:0 0 8px rgba(139,94,60,0.4);
+}
+
+/* CTA */
+.cta-btn{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:30px;
+    background:linear-gradient(135deg,#8b5e3c,#5a3e2b);
+    color:white;
+    font-size:14px;
+    cursor:pointer;
+    margin-top:15px;
+    transition:0.3s;
+}
+
+.cta-btn:hover{
+    transform:scale(1.05);
+    background:#c8a97e;
+    color:#3e2a1c;
+}
+</style>
+</head>
+
+<body>
+
+<a href="index.html" class="back-btn">
+    <span class="material-icons">arrow_back</span>
+</a>
+
+<div class="form-container">
+    <h2>DAFTAR AKUN</h2>
+
+    <div class="input-group">
+        <label>Nama Depan</label>
+        <input type="text" required>
+    </div>
+
+    <div class="input-group">
+        <label>Nama Belakang</label>
+        <input type="text" required>
+    </div>
+
+    <div class="input-group">
+        <label>Nama Pengguna</label>
+        <input type="text" required>
+    </div>
+
+    <div class="input-group">
+        <label>Alamat Email</label>
+        <input type="email" required>
+    </div>
+
+    <div class="input-group">
+        <label>No Telepon</label>
+        <input type="tel" required>
+    </div>
+
+    <div class="input-group">
+        <label>Password</label>
+        <input type="password" required>
+    </div>
+
+    <div class="input-group">
+        <label>Konfirmasi Password</label>
+        <input type="password" required>
+    </div>
+
+    <button class="cta-btn">DAFTAR</button>
+</div>
+
+</body>
+</html>
