@@ -54,13 +54,10 @@ header{
     transition:0.3s;
 }
 
-.nav-menu a .material-icons{
-    font-size:18px;
-}
-
 .nav-menu a:hover{
     background:#c8a97e;
     color:#3e2a1c;
+    transform:translateY(-3px);
 }
 
 /* ===== HERO ===== */
@@ -76,17 +73,6 @@ header{
         radial-gradient(circle at bottom right,#b48a5a,transparent 55%),
         linear-gradient(180deg,#fffaf3,#e6d3b2);
     position:relative;
-}
-
-.hero::after{
-    content:"";
-    position:absolute;
-    bottom:-120px;
-    left:50%;
-    transform:translateX(-50%);
-    width:85%;
-    height:160px;
-    background:linear-gradient(180deg,transparent,#f7efe6);
 }
 
 .hero-content{
@@ -119,6 +105,11 @@ header{
     font-size:15px;
     cursor:pointer;
     box-shadow:0 18px 40px rgba(90,60,30,0.45);
+    transition:0.3s;
+}
+
+.hero button:hover{
+    transform:scale(1.08);
 }
 
 /* ===== CARD SECTION ===== */
@@ -142,23 +133,10 @@ header{
 }
 
 .quick-card:hover{
-    transform:translateY(-12px);
+    transform:translateY(-12px) scale(1.03);
 }
 
-.quick-icon{
-    width:74px;
-    height:74px;
-    border-radius:50%;
-    background:linear-gradient(135deg,#8b5e3c,#5a3e2b);
-    color:white;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:34px;
-    margin:0 auto 18px;
-}
-
-/* ===== AUDIO VIDEO SECTION ===== */
+/* ===== MEDIA SECTION ===== */
 .media-section{
     padding:80px 60px;
     text-align:center;
@@ -183,38 +161,57 @@ header{
     box-shadow:0 20px 40px rgba(90,60,30,0.35);
 }
 
-.media-card audio,
-.media-card video{
-    width:100%;
-    border-radius:15px;
-}
-
 /* ===== FOOTER ===== */
 footer{
     background:#3a2416;
     color:#f5efe6;
-    text-align:center;
-    padding:30px 20px;
+    padding:40px 20px;
     font-size:14px;
 }
 
-.footer-links{
-    margin-top:15px;
+.footer-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:40px;
+    text-align:left;
 }
 
-.footer-links a{
-    display:inline-block;
-    margin:8px 12px;
-    padding:8px 18px;
-    border-radius:25px;
-    background:linear-gradient(135deg,#8b5e3c,#5a3e2b);
-    color:white;
+.footer-container h4{
+    margin-bottom:15px;
+    letter-spacing:1px;
+}
+
+.footer-container a{
+    display:block;
+    margin-bottom:8px;
+    color:#f5efe6;
     text-decoration:none;
-    font-size:13px;
     transition:0.3s;
 }
 
-.footer-links a:hover{
+.footer-container a:hover{
+    color:#c8a97e;
+    padding-left:6px;
+}
+
+/* ===== FEEDBACK FLOAT ===== */
+.feedback-btn{
+    position:fixed;
+    bottom:30px;
+    right:30px;
+    background:linear-gradient(135deg,#8b5e3c,#5a3e2b);
+    color:white;
+    padding:14px 20px;
+    border-radius:40px;
+    text-decoration:none;
+    box-shadow:0 15px 35px rgba(0,0,0,0.4);
+    transition:0.3s;
+    font-size:14px;
+    z-index:999;
+}
+
+.feedback-btn:hover{
+    transform:scale(1.1) rotate(-3deg);
     background:#c8a97e;
     color:#3e2a1c;
 }
@@ -226,12 +223,11 @@ footer{
 <header>
     <div class="logo">PERPUSTAKAAN HANI</div>
     <nav class="nav-menu">
-        <a href="#"><span class="material-icons">home</span>Beranda</a>
-        <a href="#"><span class="material-icons">menu_book</span>Koleksi</a>
-        <a href="#"><span class="material-icons">info</span>Tentang</a>
-        <a href="#"><span class="material-icons">perm_media</span>Media</a>
-        <a href="#"><span class="material-icons">call</span>Kontak</a>
-        <a href="login.html"><span class="material-icons">login</span>Login</a>
+        <a href="#">Beranda</a>
+        <a href="#">Koleksi</a>
+        <a href="#">Media</a>
+        <a href="login.html" target="_blank">Login</a>
+        <a href="daftar.html" target="_blank">Daftar</a>
     </nav>
 </header>
 
@@ -248,19 +244,16 @@ footer{
 
 <section class="quick-menu">
     <div class="quick-card">
-        <div class="quick-icon"><span class="material-icons">auto_stories</span></div>
         <h4>Koleksi Buku</h4>
         <p>Kumpulan bacaan pilihan untuk memperluas wawasan dan pengetahuan.</p>
     </div>
 
     <div class="quick-card">
-        <div class="quick-icon"><span class="material-icons">search</span></div>
         <h4>Pencarian Mudah</h4>
         <p>Temukan buku dengan cepat melalui sistem pencarian yang sederhana.</p>
     </div>
 
     <div class="quick-card">
-        <div class="quick-icon"><span class="material-icons">library_books</span></div>
         <h4>Layanan Perpustakaan</h4>
         <p>Informasi layanan tersaji rapi dan mudah diakses.</p>
     </div>
@@ -268,15 +261,12 @@ footer{
 
 <section class="media-section">
     <h3>AUDIO DAN VIDEO</h3>
-
     <div class="media-container">
         <div class="media-card">
             <audio controls>
                 <source src="lushlife.mp3" type="audio/mp3">
-                Tidak mendukung audio
             </audio>
         </div>
-
         <div class="media-card">
             <video controls>
                 <source src="video homepage.mp4" type="video/mp4">
@@ -286,16 +276,26 @@ footer{
 </section>
 
 <footer>
-    <div>© 2026 PERPUSTAKAAN HANI</div>
-    <div class="footer-links">
-        <a href="https://youtube.com/@tiurftsrifehtkram?si=CPgn-3yzQ6V3xXL9F" target="_blank">
-            Kunjungi YouTube Saya
-        </a>
-        <a href="cvCSS.html">
-            Lihat Curriculum Vitae
-        </a>
+    <div class="footer-container">
+        <div>
+            <h4>Tentang</h4>
+            <a href="cvCSS.html" target="_blank">Curriculum Vitae Pemilik</a>
+            <a href="https://youtube.com/@tiurftsrifehtkram?si=CPgn-3yzQ6V3xXL9F" target="_blank">
+                YouTube Channel
+            </a>
+        </div>
+
+        <div>
+            <h4>Kontak</h4>
+            <p>Alamat: Medan, Sumatera Utara</p>
+            <a href="https://instagram.com/" target="_blank">Instagram</a>
+            <a href="mailto:email@gmail.com">Email</a>
+            <p>No Telepon: 081371886934</p>
+        </div>
     </div>
 </footer>
+
+<a href="feedback.html" class="feedback-btn">Feedback</a>
 
 </body>
 </html>
