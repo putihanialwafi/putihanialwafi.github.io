@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<title>PERPUSTAKAAN HANI</title>
+<title>EDUTRAIL LIBRARY</title>
 
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
@@ -30,16 +30,34 @@ header{
 }
 
 .logo{
+    display:flex;
+    flex-direction:column;
     font-size:20px;
     letter-spacing:3px;
     font-weight:bold;
 }
 
+.logo span{
+    font-size:12px;
+    font-style:italic;
+    font-weight:normal;
+    letter-spacing:1px;
+    margin-top:4px;
+
+.logo-img{
+    width:45px;
+    height:45px;
+    object-fit:contain;
+    margin-bottom:6px;
+}	
+}
+
 /* NAVIGATION */
 .nav-menu{
     display:flex;
-    gap:28px;
+    gap:20px;
     align-items:center;
+    flex-wrap:wrap;
 }
 
 .nav-menu a{
@@ -112,7 +130,7 @@ header{
     transform:scale(1.08);
 }
 
-/* ===== CARD SECTION ===== */
+/* ===== QUICK MENU ===== */
 .quick-menu{
     margin-top:-90px;
     padding:0 60px 90px;
@@ -136,7 +154,7 @@ header{
     transform:translateY(-12px) scale(1.03);
 }
 
-/* ===== AUDIO VIDEO SECTION ===== */
+/* ===== MEDIA ===== */
 .media-section{
     padding:80px 60px;
     text-align:center;
@@ -227,19 +245,27 @@ footer{
 <body>
 
 <header>
-    <div class="logo">PERPUSTAKAAN HANI</div>
+    <div class="logo">
+    <img src="logo.perpus" alt="Logo EDUTRAIL" class="logo-img">
+    EDUTRAIL LIBRARY
+    <span>pathway to knowledge</span>
+</div>
+    </div>
     <nav class="nav-menu">
         <a href="#">Beranda</a>
-        <a href="#">Koleksi</a>
-        <a href="#">Media</a>
-        <a href="Login.html" target="_blank">Login</a>
+        <a href="profil.html" target="_blank">Profil</a>
+        <a href="layanan.html" target="_blank">Layanan</a>
+        <a href="#koleksi-buku">Koleksi</a>
+        <a href="#media-koleksi">Media</a>
+        <a href="tentang.html" target="_blank">Tentang</a>
+        <a href="login" target="_blank">Login</a>
         <a href="daftar.html" target="_blank">Daftar</a>
     </nav>
 </header>
 
 <section class="hero">
     <div class="hero-content">
-        <h2>SELAMAT DATANG DI <span>PERPUSTAKAAN HANI</span></h2>
+        <h2>SELAMAT DATANG DI <span>WEBSITE PERPUSTAKAAN EDUTRAIL</span></h2>
         <p>
             Ruang literasi digital yang dirancang untuk menghadirkan pengalaman
             membaca yang nyaman, modern, dan menyenangkan dalam satu tempat.
@@ -248,7 +274,7 @@ footer{
     </div>
 </section>
 
-<section class="quick-menu">
+<section class="quick-menu" id="koleksi-buku">
     <div class="quick-card">
         <h4>Koleksi Buku</h4>
         <p>Kumpulan bacaan pilihan untuk memperluas wawasan dan pengetahuan.</p>
@@ -265,7 +291,7 @@ footer{
     </div>
 </section>
 
-<section class="media-section">
+<section class="media-section" id="media-koleksi">
     <h3>AUDIO DAN VIDEO</h3>
     <div class="media-container">
         <div class="media-card">
@@ -296,7 +322,14 @@ footer{
             <p>Alamat: Medan, Sumatera Utara</p>
             <a href="https://instagram.com/" target="_blank">Instagram</a>
             <a href="mailto:email@gmail.com">Email</a>
-            <p>No Telepon: 081371886934</p>
+            <p>No Telepon: (+62)813-7188-6934</p>
+        </div>
+
+        <div>
+            <h4>Jam Operasional Layanan</h4>
+            <p>Senin-Jumat : 08:00-19:00 WIB</p>
+            <p>Sabtu : 09:00-17:00 WIB</p>
+            <p>Minggu & Libur Nasional : Tutup</p>
         </div>
     </div>
 </footer>
