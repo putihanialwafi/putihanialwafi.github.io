@@ -29,27 +29,38 @@ header{
     color:white;
 }
 
-.logo{
+/* AREA LOGO */
+.logo-area{
     display:flex;
-    flex-direction:column;
-    font-size:20px;
-    letter-spacing:3px;
-    font-weight:bold;
+    align-items:center;
+    gap:12px;
 }
 
-.logo span{
-    font-size:12px;
-    font-style:italic;
-    font-weight:normal;
-    letter-spacing:1px;
-    margin-top:4px;
-
-.logo-img{
+/* LOGO IMAGE BULAT */
+.logo-area img{
     width:45px;
     height:45px;
-    object-fit:contain;
-    margin-bottom:6px;
-}	
+    border-radius:50%;
+    object-fit:cover;
+    border:2px solid #c8a97e;
+}
+
+/* TEKS NAMA */
+.logo-text{
+    display:flex;
+    flex-direction:column;
+}
+
+.logo-text h2{
+    font-size:18px;
+    letter-spacing:2px;
+}
+
+.logo-text span{
+    font-size:11px;
+    font-style:italic;
+    letter-spacing:1px;
+    color:#e6d3b2;
 }
 
 /* NAVIGATION */
@@ -245,14 +256,16 @@ footer{
 <body>
 
 <header>
-   <div class="navbar">
+
     <div class="logo-area">
-        <img src="logo.png.png" alt="Logo">
-        <h2>EDUTRAIL LIBRARY</h2>
-		<span>pathway to knowledge</span>
+        <img src="logo.png" alt="Logo Perpustakaan">
+        
+        <div class="logo-text">
+            <h2>EDUTRAIL LIBRARY</h2>
+            <span>pathway to knowledge</span>
+        </div>
     </div>
-</div>
-    </div>
+
     <nav class="nav-menu">
         <a href="#">Beranda</a>
         <a href="profil.html" target="_blank">Profil</a>
@@ -260,9 +273,10 @@ footer{
         <a href="#koleksi-buku">Koleksi</a>
         <a href="#media-koleksi">Media</a>
         <a href="tentang.html" target="_blank">Tentang</a>
-        <a href="login" target="_blank">Login</a>
+        <a href="login.html" target="_blank">Login</a>
         <a href="daftar.html" target="_blank">Daftar</a>
     </nav>
+
 </header>
 
 <section class="hero">
