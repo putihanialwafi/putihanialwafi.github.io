@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Tentang - EduTrail Library</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:"Segoe UI",sans-serif;
+    background:linear-gradient(135deg,#f7efe6,#c8a97e);
+    color:#3e2a1c;
+}
+
+/* HEADER */
+header{
+    background:linear-gradient(135deg,#6b4527,#3a2416);
+    color:white;
+    text-align:center;
+    padding:55px 20px; /* diperkecil */
+}
+
+header h1{
+    font-size:26px; /* lebih proporsional */
+    letter-spacing:2px;
+    font-weight:bold;
+}
+
+header p{
+    margin-top:10px;
+    font-size:14px;
+    opacity:0.9;
+    letter-spacing:1px;
+    font-style:italic; /* slogan miring */
+}
+
+/* CONTAINER */
+.container{
+    max-width:950px;
+    margin:80px auto;
+    padding:0 30px;
+}
+
+.profile{
+    background:white;
+    padding:50px;
+    border-radius:30px;
+    box-shadow:0 25px 50px rgba(90,60,30,0.3);
+    display:grid;
+    grid-template-columns:260px 1fr;
+    gap:40px;
+    align-items:center;
+}
+
+.photo img{
+    width:220px;
+    height:220px;
+    object-fit:cover;
+    border-radius:20px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.2);
+}
+
+.name{
+    font-size:24px;
+    font-weight:bold;
+    color:#5a3c1e;
+}
+
+.title{
+    font-size:15px;
+    margin-top:5px;
+    margin-bottom:20px;
+    color:#7a5a3a;
+}
+
+.desc{
+    line-height:1.8;
+    margin-bottom:20px;
+}
+
+.reason{
+    background:#f4e7d8;
+    padding:25px;
+    border-radius:20px;
+    line-height:1.8;
+}
+
+.cv-button{
+    text-align:center;
+    margin-top:60px;
+}
+
+.cv-button a{
+    display:inline-block;
+    padding:14px 35px;
+    background:#5a3c1e;
+    color:white;
+    text-decoration:none;
+    border-radius:40px;
+    font-size:14px;
+    transition:0.3s;
+}
+
+.cv-button a:hover{
+    background:#3a2416;
+}
+
+footer{
+    text-align:center;
+    padding:30px;
+    background:#5a3c1e;
+    color:white;
+    margin-top:80px;
+    font-size:14px;
+}
+
+@media(max-width:800px){
+    .profile{
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>TENTANG PENGGAGAS</h1>
+    <p>EduTrail Library - Pathway to Knowledge</p>
+</header>
+
+<div class="container">
+
+    <div class="profile">
+        
+        <div class="photo">
+            <img src="foto html.jpeg" alt="Foto Profil">
+        </div>
+
+        <div>
+            <div class="name">Puti Hani Alwafi</div>
+            <div class="title">Mahasiswa S1 Perpustakaan dan Sains Informasi</div>
+
+            <div class="desc">
+                Berfokus pada pengembangan literasi digital, manajemen informasi, 
+                dan inovasi perpustakaan berbasis teknologi untuk mendukung 
+                pembelajaran yang relevan dengan kebutuhan global.
+            </div>
+
+            <div class="reason">
+                <strong>Mengapa EduTrail Library dibuat?</strong><br><br>
+                EduTrail Library lahir dari gagasan bahwa perpustakaan tidak hanya 
+                menjadi ruang penyimpanan informasi, tetapi pusat perencanaan masa depan. 
+                Platform ini dirancang untuk membantu siswa merancang jalur akademik 
+                secara terarah, terstruktur, dan siap menghadapi peluang pendidikan 
+                di tingkat nasional maupun internasional.
+            </div>
+        </div>
+
+    </div>
+
+    <div class="cv-button">
+        <a href="cvCSS.html">Lihat Curriculum Vitae</a>
+    </div>
+
+</div>
+
+<footer>
+    © 2026 EduTrail Library
+</footer>
+
+</body>
+</html>

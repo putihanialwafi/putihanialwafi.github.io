@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Layanan - EduTrail Library</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:"Segoe UI",sans-serif;
+    background:linear-gradient(135deg,#f7efe6,#c8a97e);
+    color:#3e2a1c;
+}
+
+/* HERO */
+.hero{
+    background:linear-gradient(135deg,#3a2416,#6b4527);
+    color:white;
+    text-align:center;
+    padding:70px 20px;
+}
+
+.hero h1{
+    font-size:32px;
+    letter-spacing:2px;
+}
+
+.hero p{
+    margin-top:15px;
+    font-style:italic;
+    color:#e6d3b2;
+}
+
+/* INTRO */
+.intro{
+    max-width:900px;
+    margin:50px auto 30px;
+    text-align:center;
+    padding:0 30px;
+    line-height:1.8;
+}
+
+/* SERVICES GRID */
+.services{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:40px;
+    padding:60px;
+}
+
+.card{
+    background:linear-gradient(180deg,#fffdf9,#f0e0c7);
+    padding:40px 25px;
+    border-radius:30px;
+    text-align:center;
+    box-shadow:0 20px 40px rgba(90,60,30,0.35);
+    transition:0.4s;
+    position:relative;
+}
+
+.card::before{
+    content:"";
+    position:absolute;
+    width:100%;
+    height:5px;
+    top:0;
+    left:0;
+    background:linear-gradient(90deg,#8b5e3c,#c8a97e);
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card h3{
+    margin-bottom:15px;
+    color:#5a3e2b;
+}
+
+.card p{
+    font-size:15px;
+    line-height:1.7;
+}
+
+/* CTA BUTTON */
+.cta{
+    text-align:center;
+    margin:50px 0;
+}
+
+.cta a{
+    display:inline-block;
+    padding:15px 40px;
+    border-radius:40px;
+    text-decoration:none;
+    background:linear-gradient(135deg,#8b5e3c,#5a3e2b);
+    color:white;
+    box-shadow:0 15px 35px rgba(90,60,30,0.4);
+    transition:0.3s;
+}
+
+.cta a:hover{
+    transform:scale(1.05);
+    background:#c8a97e;
+    color:#3e2a1c;
+}
+
+/* ACADEMIC PATHWAY SECTION */
+.pathway{
+    background:#fffdf9;
+    margin:60px auto 80px;
+    padding:60px 40px;
+    max-width:1100px;
+    border-radius:30px;
+    box-shadow:0 20px 45px rgba(90,60,30,0.35);
+}
+
+.pathway h2{
+    text-align:center;
+    margin-bottom:50px;
+    letter-spacing:1px;
+}
+
+.timeline{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:30px;
+}
+
+.step{
+    background:#f0e0c7;
+    padding:25px;
+    border-radius:20px;
+    text-align:center;
+    transition:0.3s;
+}
+
+.step:hover{
+    background:#e6d3b2;
+    transform:translateY(-5px);
+}
+
+.step h4{
+    margin-bottom:10px;
+    color:#5a3e2b;
+}
+
+/* BACK BUTTON */
+.back-home{
+    display:block;
+    width:220px;
+    margin:0 auto 60px;
+    text-align:center;
+    padding:12px;
+    border-radius:40px;
+    text-decoration:none;
+    background:#3a2416;
+    color:white;
+    transition:0.3s;
+}
+
+.back-home:hover{
+    background:#6b4527;
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+    <h1>LAYANAN EDUTRAIL LIBRARY</h1>
+    <p>Academic Support System for Global University Preparation</p>
+</section>
+
+<section class="intro">
+    <p>
+        EduTrail Library menyediakan layanan literasi akademik terpadu 
+        yang dirancang untuk membantu siswa mempersiapkan diri menuju 
+        universitas internasional melalui sistem jalur pembelajaran bertahap.
+    </p>
+</section>
+
+<section class="services">
+
+    <div class="card">
+        <h3>Koleksi Akademik Global</h3>
+        <p>Buku academic writing, IELTS, TOEFL, research method, critical thinking, dan pengembangan diri berstandar internasional.</p>
+    </div>
+
+    <div class="card">
+        <h3>Global University Pathway</h3>
+        <p>Panduan timeline persiapan kuliah luar negeri mulai dari kelas 10–12 hingga tahap application submission.</p>
+    </div>
+
+    <div class="card">
+        <h3>Informasi Beasiswa Internasional</h3>
+        <p>Referensi program beasiswa global serta arahan umum persiapan dokumen dan persyaratan akademik.</p>
+    </div>
+
+    <div class="card">
+        <h3>Student Academic Support</h3>
+        <p>Template CV, personal statement, motivation letter, serta panduan wawancara universitas luar negeri.</p>
+    </div>
+
+</section>
+
+<section class="pathway" id="pathway">
+    <h2>Academic Trail System</h2>
+
+    <div class="timeline">
+
+        <div class="step">
+            <h4>Tahap 1</h4>
+            <p>Penguatan literasi dasar, kemampuan bahasa Inggris, dan kebiasaan membaca akademik.</p>
+        </div>
+
+        <div class="step">
+            <h4>Tahap 2</h4>
+            <p>Pengembangan academic writing, critical thinking, dan pemahaman riset.</p>
+        </div>
+
+        <div class="step">
+            <h4>Tahap 3</h4>
+            <p>Persiapan tes internasional seperti IELTS atau TOEFL dan eksplorasi universitas tujuan.</p>
+        </div>
+
+        <div class="step">
+            <h4>Tahap 4</h4>
+            <p>Penyusunan dokumen aplikasi, personal statement, dan persiapan wawancara universitas.</p>
+        </div>
+
+    </div>
+</section>
+
+<a href="../index.html" class="back-home">Kembali ke Beranda</a>
+
+</body>
+</html>
