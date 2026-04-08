@@ -1,243 +1,342 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<title>Layanan - EduTrail Library</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layanan - EDUTRAIL LIBRARY</title>
+    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+    <style>
+        :root {
+            --primary: #6b4527;
+            --secondary: #c8a97e;
+            --dark: #3a2416;
+            --light: #f7efe6;
+            --accent: #8b5e3c;
+            --black-coffee: #1a100a;
+        }
 
-body{
-    font-family:"Segoe UI",sans-serif;
-    background:linear-gradient(135deg,#f7efe6,#c8a97e);
-    color:#3e2a1c;
-}
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
-/* HERO */
-.hero{
-    background:linear-gradient(135deg,#3a2416,#6b4527);
-    color:white;
-    text-align:center;
-    padding:70px 20px;
-}
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fffaf3;
+            color: #3e2a1c;
+            line-height: 1.6;
+        }
 
-.hero h1{
-    font-size:32px;
-    letter-spacing:2px;
-}
+        /* ===== TOP BAR (IDENTIK HOMEPAGE) ===== */
+        .top-bar {
+            background: var(--black-coffee);
+            color: var(--secondary);
+            padding: 8px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            border-bottom: 1px solid rgba(200, 169, 126, 0.2);
+        }
+        .top-bar-info { display: flex; gap: 25px; align-items: center; }
+        .top-bar-info span { display: flex; align-items: center; gap: 6px; }
+        .top-bar-social { display: flex; align-items: center; gap: 15px; }
+        .top-bar-social a { color: var(--secondary); text-decoration: none; transition: 0.3s; }
+        .top-bar-social a:hover { color: white; }
 
-.hero p{
-    margin-top:15px;
-    font-style:italic;
-    color:#e6d3b2;
-}
+        /* ===== HEADER (IDENTIK HOMEPAGE) ===== */
+        header {
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(135deg, var(--dark), var(--black-coffee));
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .header-left { display: flex; align-items: center; gap: 25px; }
+        .logo-area { display: flex; align-items: center; gap: 12px; min-width: 200px; }
+        .logo-area img { width: 45px; height: 45px; border-radius: 50%; border: 2px solid var(--secondary); object-fit: cover; }
+        .logo-text h2 { font-size: 16px; letter-spacing: 1px; line-height: 1; }
+        .logo-text span { font-size: 10px; color: var(--secondary); text-transform: uppercase; }
 
-/* INTRO */
-.intro{
-    max-width:900px;
-    margin:50px auto 30px;
-    text-align:center;
-    padding:0 30px;
-    line-height:1.8;
-}
+        .search-container {
+            display: flex; align-items: center; background: rgba(255, 255, 255, 0.1);
+            padding: 5px 15px; border-radius: 30px; border: 1px solid rgba(200, 169, 126, 0.3);
+            width: 350px;
+        }
+        .search-container input { background: none; border: none; color: white; padding: 5px; width: 100%; outline: none; }
+        .search-container .material-icons { font-size: 20px; color: var(--secondary); cursor: pointer; }
 
-/* SERVICES GRID */
-.services{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:40px;
-    padding:60px;
-}
+        .nav-menu { display: flex; gap: 8px; }
+        .nav-menu a {
+            text-decoration: none; color: #e6d3b2; font-size: 13px;
+            padding: 8px 12px; border-radius: 8px; transition: 0.3s;
+        }
+        .nav-menu a:hover { color: white; background: rgba(200, 169, 126, 0.2); }
 
-.card{
-    background:linear-gradient(180deg,#fffdf9,#f0e0c7);
-    padding:40px 25px;
-    border-radius:30px;
-    text-align:center;
-    box-shadow:0 20px 40px rgba(90,60,30,0.35);
-    transition:0.4s;
-    position:relative;
-}
+        /* ===== HERO & CONTENT LAYANAN ===== */
+        .hero {
+            background: linear-gradient(rgba(58, 36, 22, 0.8), rgba(107, 69, 39, 0.8)), 
+                        url('https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover; background-position: center;
+            color: white; text-align: center; padding: 100px 20px;
+        }
+        .hero h1 { font-size: 36px; letter-spacing: 2px; text-transform: uppercase; }
+        .hero p { margin-top: 15px; color: #e6d3b2; font-size: 1.1rem; }
 
-.card::before{
-    content:"";
-    position:absolute;
-    width:100%;
-    height:5px;
-    top:0;
-    left:0;
-    background:linear-gradient(90deg,#8b5e3c,#c8a97e);
-}
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 5%; }
 
-.card:hover{
-    transform:translateY(-10px);
-}
+        .intro-access {
+            max-width: 1000px; margin: -50px auto 50px;
+            background: white; padding: 40px; border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1); text-align: center;
+            position: relative; z-index: 10;
+        }
+        .intro-access h2 { color: var(--primary); margin-bottom: 15px; }
 
-.card h3{
-    margin-bottom:15px;
-    color:#5a3e2b;
-}
+        .service-section { margin-bottom: 80px; }
+        .section-header { 
+            display: flex; align-items: center; gap: 15px; margin-bottom: 30px; 
+            border-bottom: 2px solid var(--secondary); padding-bottom: 10px;
+        }
+        .section-header i { color: var(--accent); font-size: 35px; }
 
-.card p{
-    font-size:15px;
-    line-height:1.7;
-}
+        .grid-3 {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;
+        }
 
-/* CTA BUTTON */
-.cta{
-    text-align:center;
-    margin:50px 0;
-}
+        .card {
+            background: white; border-radius: 15px; overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05); transition: 0.3s;
+            border: 1px solid #eee; display: flex; flex-direction: column;
+        }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(90,60,30,0.2); }
+        .card img { width: 100%; height: 200px; object-fit: cover; }
+        .card-content { padding: 25px; flex-grow: 1; }
+        .card-content h4 { color: var(--dark); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+        .card-content p { font-size: 14px; color: #666; margin-bottom: 8px; }
 
-.cta a{
-    display:inline-block;
-    padding:15px 40px;
-    border-radius:40px;
-    text-decoration:none;
-    background:linear-gradient(135deg,#8b5e3c,#5a3e2b);
-    color:white;
-    box-shadow:0 15px 35px rgba(90,60,30,0.4);
-    transition:0.3s;
-}
+        /* KALKULATOR */
+        .calculator-box {
+            background: var(--light); border: 2px solid var(--secondary);
+            padding: 40px; border-radius: 20px; margin-top: 30px;
+            display: flex; flex-wrap: wrap; gap: 30px; align-items: center; justify-content: center;
+        }
+        .calc-input { display: flex; flex-direction: column; gap: 8px; }
+        .calc-input label { font-weight: bold; font-size: 14px; }
+        .calc-input input { padding: 12px; border-radius: 8px; border: 1px solid #ccc; font-size: 16px; width: 220px; }
+        .btn-calc { 
+            background: var(--primary); color: white; border: none; padding: 12px 30px; 
+            border-radius: 8px; cursor: pointer; font-weight: bold; transition: 0.3s;
+        }
+        .btn-calc:hover { background: var(--dark); }
+        .result-display { 
+            font-size: 24px; font-weight: bold; color: #d9534f; 
+            padding: 10px 20px; background: white; border-radius: 8px; min-width: 200px; text-align: center;
+        }
 
-.cta a:hover{
-    transform:scale(1.05);
-    background:#c8a97e;
-    color:#3e2a1c;
-}
+        .btn-action {
+            display: inline-block; margin-top: 15px; padding: 10px 20px;
+            background: var(--secondary); color: var(--dark);
+            text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 14px;
+        }
+        .btn-action:hover { background: var(--accent); color: white; }
 
-/* ACADEMIC PATHWAY SECTION */
-.pathway{
-    background:#fffdf9;
-    margin:60px auto 80px;
-    padding:60px 40px;
-    max-width:1100px;
-    border-radius:30px;
-    box-shadow:0 20px 45px rgba(90,60,30,0.35);
-}
+        /* ===== FOOTER (IDENTIK HOMEPAGE) ===== */
+        footer {
+            background: var(--black-coffee); color: #d1bfa7; padding: 80px 8% 30px;
+        }
+        .footer-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 50px; margin-bottom: 50px;
+        }
+        .footer-col h4 { color: white; margin-bottom: 25px; font-size: 18px; position: relative; }
+        .footer-col h4::after { content:''; position:absolute; left:0; bottom:-8px; width:30px; height:2px; background:var(--secondary); }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 12px; }
+        .footer-col a { color: #d1bfa7; text-decoration: none; font-size: 14px; transition: 0.3s; }
+        .footer-col a:hover { color: var(--secondary); padding-left: 5px; }
+        .copyright { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 13px; color: #555; }
 
-.pathway h2{
-    text-align:center;
-    margin-bottom:50px;
-    letter-spacing:1px;
-}
-
-.timeline{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:30px;
-}
-
-.step{
-    background:#f0e0c7;
-    padding:25px;
-    border-radius:20px;
-    text-align:center;
-    transition:0.3s;
-}
-
-.step:hover{
-    background:#e6d3b2;
-    transform:translateY(-5px);
-}
-
-.step h4{
-    margin-bottom:10px;
-    color:#5a3e2b;
-}
-
-/* BACK BUTTON */
-.back-home{
-    display:block;
-    width:220px;
-    margin:0 auto 60px;
-    text-align:center;
-    padding:12px;
-    border-radius:40px;
-    text-decoration:none;
-    background:#3a2416;
-    color:white;
-    transition:0.3s;
-}
-
-.back-home:hover{
-    background:#6b4527;
-}
-</style>
+    </style>
 </head>
-
 <body>
 
+<div class="top-bar">
+    <div class="top-bar-info">
+        <span><i class="material-icons" style="font-size:14px">calendar_today</i> <span id="current-date"></span></span>
+        <span><i class="material-icons" style="font-size:14px">access_time</i> <span id="current-time"></span></span>
+        <span><i class="material-icons" style="font-size:14px">location_on</i> Medan, Indonesia</span>
+    </div>
+    <div class="top-bar-social">
+        <a href="#"><i class="material-icons" style="font-size:16px">facebook</i></a>
+        <a href="#"><i class="material-icons" style="font-size:16px">play_circle_filled</i></a>
+    </div>
+</div>
+
+<header>
+    <div class="header-left">
+        <div class="logo-area">
+            <img src="logo.png" alt="Logo">
+            <div class="logo-text">
+                <h2>EDUTRAIL LIBRARY</h2>
+                <span>Pathway to Knowledge</span>
+            </div>
+        </div>
+        <div class="search-container">
+            <input type="text" placeholder="Cari koleksi digital...">
+            <span class="material-icons">search</span>
+        </div>
+    </div>
+    <nav class="nav-menu">
+        <a href="index.html">Beranda</a>
+        <a href="Profil.html">Profil</a>
+        <a href="Layanan.html">Layanan</a>
+        <a href="index.html#koleksi">Koleksi</a>
+        <a href="event.html">Events</a>
+        <a href="login.html">Login</a>
+    </nav>
+</header>
+
 <section class="hero">
-    <h1>LAYANAN EDUTRAIL LIBRARY</h1>
-    <p>Academic Support System for Global University Preparation</p>
+    <h1>Sirkulasi Digital & Anggota</h1>
+    <p>Akses pustaka dunia dalam satu sentuhan melalui sistem digital terintegrasi.</p>
 </section>
 
-<section class="intro">
-    <p>
-        EduTrail Library menyediakan layanan literasi akademik terpadu 
-        yang dirancang untuk membantu siswa mempersiapkan diri menuju 
-        universitas internasional melalui sistem jalur pembelajaran bertahap.
-    </p>
-</section>
+<div class="container">
+    <section class="intro-access">
+        <h2>Akses Layanan Terpadu</h2>
+        <p>Seluruh koleksi di EduTrail Library bersifat digital (E-Book & E-Journal). Anggota terdaftar dapat mengakses, mengunduh, dan membaca materi tanpa perlu peminjaman fisik.</p>
+    </section>
 
-<section class="services">
+    <section class="service-section">
+        <div class="section-header">
+            <i class="material-icons">cloud_download</i>
+            <h3>Layanan Peminjaman Digital</h3>
+        </div>
+        
+        <div class="grid-3">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1512486130939-2c4f79935e4f?auto=format&fit=crop&w=500&q=80">
+                <div class="card-content">
+                    <h4><i class="material-icons">menu_book</i> Aturan & Cara Akses</h4>
+                    <p>1. Wajib memiliki akun aktif.</p>
+                    <p>2. Maksimal simpan 3 koleksi offline.</p>
+                    <p>3. Durasi akses materi adalah 7 hari.</p>
+                    <a href="index.html#koleksi" class="btn-action">Eksplorasi E-Book</a>
+                </div>
+            </div>
 
-    <div class="card">
-        <h3>Koleksi Akademik Global</h3>
-        <p>Buku academic writing, IELTS, TOEFL, research method, critical thinking, dan pengembangan diri berstandar internasional.</p>
-    </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=500&q=80">
+                <div class="card-content">
+                    <h4><i class="material-icons">add_to_drive</i> Usulkan Koleksi Baru</h4>
+                    <p>Member dapat mengusulkan judul buku digital atau jurnal internasional melalui formulir usulan kami.</p>
+                    <a href="#" class="btn-action">Kirim Usulan</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <div class="card">
-        <h3>Global University Pathway</h3>
-        <p>Panduan timeline persiapan kuliah luar negeri mulai dari kelas 10–12 hingga tahap application submission.</p>
-    </div>
-
-    <div class="card">
-        <h3>Informasi Beasiswa Internasional</h3>
-        <p>Referensi program beasiswa global serta arahan umum persiapan dokumen dan persyaratan akademik.</p>
-    </div>
-
-    <div class="card">
-        <h3>Student Academic Support</h3>
-        <p>Template CV, personal statement, motivation letter, serta panduan wawancara universitas luar negeri.</p>
-    </div>
-
-</section>
-
-<section class="pathway" id="pathway">
-    <h2>Academic Trail System</h2>
-
-    <div class="timeline">
-
-        <div class="step">
-            <h4>Tahap 1</h4>
-            <p>Penguatan literasi dasar, kemampuan bahasa Inggris, dan kebiasaan membaca akademik.</p>
+    <section class="service-section">
+        <div class="section-header">
+            <i class="material-icons">history_toggle_off</i>
+            <h3>Layanan Pengembalian Digital</h3>
+        </div>
+        
+        <div class="grid-3">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=500&q=80">
+                <div class="card-content">
+                    <h4><i class="material-icons">update</i> Sistem Auto-Return</h4>
+                    <p>Sistem akan mencabut izin akses tepat pada hari ke-7 pukul 23:59 WIB secara otomatis.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1589758438368-0ad531db3366?auto=format&fit=crop&w=500&q=80">
+                <div class="card-content">
+                    <h4><i class="material-icons">account_balance_wallet</i> Kebijakan Denda</h4>
+                    <p>Keterlambatan sinkronisasi yang disengaja akan dikenakan denda administratif sebagai kedisiplinan.</p>
+                </div>
+            </div>
         </div>
 
-        <div class="step">
-            <h4>Tahap 2</h4>
-            <p>Pengembangan academic writing, critical thinking, dan pemahaman riset.</p>
+        <h4 style="margin-top:40px; text-align:center;">KALKULATOR DENDA KETERLAMBATAN (IDR)</h4>
+        <div class="calculator-box">
+            <div class="calc-input">
+                <label>Hari Keterlambatan</label>
+                <input type="number" id="hari" placeholder="Jumlah hari" min="0">
+            </div>
+            <div class="calc-input">
+                <label>Denda Per Hari</label>
+                <input type="text" value="Rp 500,-" readonly style="background:#eee; font-weight: bold;">
+            </div>
+            <button class="btn-calc" onclick="hitungDenda()">HITUNG TOTAL</button>
+            <div class="result-display" id="hasil-denda">Rp 0</div>
         </div>
+    </section>
+</div>
 
-        <div class="step">
-            <h4>Tahap 3</h4>
-            <p>Persiapan tes internasional seperti IELTS atau TOEFL dan eksplorasi universitas tujuan.</p>
+<footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>EDUTRAIL LIBRARY</h4>
+            <p style="font-size: 13px; line-height: 1.8;">Pusat informasi dan literasi modern yang berkomitmen mendukung pendidikan global melalui penyediaan koleksi berkualitas.</p>
         </div>
-
-        <div class="step">
-            <h4>Tahap 4</h4>
-            <p>Penyusunan dokumen aplikasi, personal statement, dan persiapan wawancara universitas.</p>
+        <div class="footer-col">
+            <h4>Navigasi Cepat</h4>
+            <ul>
+                <li><a href="index.html">Beranda Utama</a></li>
+                <li><a href="Profil.html">Profil Perpustakaan</a></li>
+                <li><a href="Layanan.html">Layanan & Fasilitas</a></li>
+                <li><a href="event.html">Agenda & Events</a></li>
+            </ul>
         </div>
-
+        <div class="footer-col">
+            <h4>Kontak Kami</h4>
+            <ul>
+                <li><a href="#">Email: alwafi.putihani@gmail.com</a></li>
+                <li><a href="#">WhatsApp: (+62) 813-7188-6934</a></li>
+                <li><a href="#">Medan, Sumatera Utara</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Ikuti Kami</h4>
+            <ul>
+                <li><a href="#">Instagram @edutrail_lib</a></li>
+                <li><a href="#">YouTube Edutrail Knowledge</a></li>
+            </ul>
+        </div>
     </div>
-</section>
+    <div class="copyright">
+        &copy; 2026 Edutrail Library. Dikembangkan dengan dedikasi untuk literasi Indonesia.
+    </div>
+</footer>
 
-<a href="../index.html" class="back-home">Kembali ke Beranda</a>
+<script>
+    function updateDateTime() {
+        const now = new Date();
+        document.getElementById('current-time').innerText = now.toLocaleTimeString('id-ID');
+        document.getElementById('current-date').innerText = now.toLocaleDateString('id-ID', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    }
+    setInterval(updateDateTime, 1000);
+    updateDateTime();
+
+    function hitungDenda() {
+        const hari = document.getElementById('hari').value;
+        const biayaPerHari = 500;
+        if (hari >= 0 && hari !== "") {
+            const total = hari * biayaPerHari;
+            document.getElementById('hasil-denda').innerText = "Rp " + total.toLocaleString('id-ID');
+        } else {
+            alert("Harap masukkan jumlah hari yang valid.");
+        }
+    }
+</script>
 
 </body>
 </html>
