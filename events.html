@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events - EDUTRAIL LIBRARY</title>
+    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #6b4527;
+            --secondary: #c8a97e;
+            --dark: #3a2416;
+            --light: #f7efe6;
+            --accent: #8b5e3c;
+            --black-coffee: #1a100a;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fffaf3;
+            color: #3e2a1c;
+            line-height: 1.6;
+        }
+
+        /* ===== TOP BAR (IDENTIK HOMEPAGE) ===== */
+        .top-bar {
+            background: var(--black-coffee);
+            color: var(--secondary);
+            padding: 8px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            border-bottom: 1px solid rgba(200, 169, 126, 0.2);
+        }
+        .top-bar-info { display: flex; gap: 25px; align-items: center; }
+        .top-bar-info span { display: flex; align-items: center; gap: 6px; }
+        .top-bar-info i { font-size: 16px; }
+        .top-bar-social { display: flex; align-items: center; gap: 15px; }
+        .top-bar-social a { color: var(--secondary); text-decoration: none; transition: 0.3s; display: flex; align-items: center; }
+        .top-bar-social a:hover { color: white; transform: scale(1.1); }
+
+        /* ===== HEADER (IDENTIK HOMEPAGE) ===== */
+        header {
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(135deg, var(--dark), var(--black-coffee));
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .header-left { display: flex; align-items: center; gap: 25px; }
+        .logo-area { display: flex; align-items: center; gap: 12px; min-width: 200px; }
+        .logo-area img { width: 45px; height: 45px; border-radius: 50%; border: 2px solid var(--secondary); object-fit: cover; }
+        .logo-text h2 { font-size: 16px; letter-spacing: 1px; line-height: 1; }
+        .logo-text span { font-size: 10px; color: var(--secondary); text-transform: uppercase; }
+
+        .search-container {
+            display: flex; align-items: center; background: rgba(255, 255, 255, 0.1);
+            padding: 5px 15px; border-radius: 30px; border: 1px solid rgba(200, 169, 126, 0.3);
+            width: 350px; transition: 0.3s;
+        }
+        .search-container input { background: none; border: none; color: white; padding: 5px; width: 100%; outline: none; }
+        .search-container input::placeholder { color: #e6d3b2; font-size: 12px; }
+        .search-container .material-icons { font-size: 20px; color: var(--secondary); cursor: pointer; margin-left: 8px; }
+
+        .nav-menu { display: flex; gap: 8px; }
+        .nav-menu a {
+            text-decoration: none; color: #e6d3b2; font-size: 13px;
+            padding: 8px 12px; border-radius: 8px; transition: 0.3s;
+        }
+        .nav-menu a:hover { color: white; background: rgba(200, 169, 126, 0.2); }
+
+        /* ===== KONTEN EVENT ===== */
+        .event-banner {
+            background: linear-gradient(rgba(58, 36, 22, 0.8), rgba(58, 36, 22, 0.8)), 
+                        url('https://images.unsplash.com/photo-1506784919141-177b4ece2a0d?auto=format&fit=crop&w=1400&q=80');
+            background-size: cover; background-position: center;
+            padding: 100px 5%; text-align: center; color: white;
+        }
+
+        .section-container { padding: 80px 8%; }
+        .section-title { text-align: center; margin-bottom: 50px; }
+        .section-title h2 { color: var(--dark); font-size: 32px; text-transform: uppercase; letter-spacing: 2px; }
+        .section-title div { width: 80px; height: 4px; background: var(--secondary); margin: 15px auto; border-radius: 2px; }
+
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 35px; }
+
+        .event-card {
+            background: white; border-radius: 20px; overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05); transition: 0.4s;
+            border: 1px solid rgba(200, 169, 126, 0.1);
+        }
+        .event-card:hover { transform: translateY(-10px); box-shadow: 0 20px 45px rgba(90,60,30,0.2); }
+        .event-img { width: 100%; height: 200px; object-fit: cover; }
+        
+        .event-info { padding: 25px; }
+        .event-tag { 
+            background: var(--light); color: var(--primary); 
+            font-size: 11px; font-weight: 700; padding: 5px 12px; 
+            border-radius: 20px; display: inline-block; margin-bottom: 15px;
+        }
+        .event-info h3 { color: var(--primary); margin-bottom: 10px; }
+        .event-info p { font-size: 14px; color: #666; margin-bottom: 20px; }
+        
+        .btn-event {
+            display: inline-block; padding: 12px 25px; 
+            background: linear-gradient(135deg, var(--secondary), #b48a5a); 
+            color: var(--dark); text-decoration: none; border-radius: 25px; 
+            font-weight: 700; font-size: 13px; transition: 0.3s;
+        }
+        .btn-event:hover { transform: scale(1.05); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+
+        /* ===== FOOTER (IDENTIK HOMEPAGE) ===== */
+        footer {
+            background: var(--black-coffee); color: #d1bfa7; padding: 80px 8% 30px;
+        }
+        .footer-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 50px; margin-bottom: 50px;
+        }
+        .footer-col h4 { color: white; margin-bottom: 25px; font-size: 18px; position: relative; }
+        .footer-col h4::after { content:''; position:absolute; left:0; bottom:-8px; width:30px; height:2px; background:var(--secondary); }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 12px; }
+        .footer-col a { color: #d1bfa7; text-decoration: none; font-size: 14px; transition: 0.3s; }
+        .footer-col a:hover { color: var(--secondary); padding-left: 5px; }
+        .copyright { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 13px; color: #555; }
+
+        .feedback-btn {
+            position: fixed; bottom: 30px; right: 30px;
+            background: var(--secondary); color: var(--dark);
+            padding: 12px 25px; border-radius: 30px; text-decoration: none;
+            font-weight: bold; box-shadow: 0 10px 20px rgba(0,0,0,0.3); z-index: 999;
+        }
+    </style>
+</head>
+<body>
+
+<div class="top-bar">
+    <div class="top-bar-info">
+        <span><i class="material-icons">calendar_today</i> <span id="current-date">Memuat tanggal...</span></span>
+        <span><i class="material-icons">access_time</i> <span id="current-time">00:00:00</span></span>
+        <span><i class="material-icons">location_on</i> Medan, Indonesia</span>
+    </div>
+    <div class="top-bar-social">
+        <a href="#" title="Facebook"><i class="material-icons">facebook</i></a>
+        <a href="#" title="Instagram"><img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" width="14" style="filter: sepia(1) saturate(5) hue-rotate(10deg); margin-right: 2px;"></a>
+        <a href="#" title="YouTube"><i class="material-icons">play_circle_filled</i></a>
+    </div>
+</div>
+
+<header>
+    <div class="header-left">
+        <div class="logo-area">
+            <img src="logo.png" alt="Logo">
+            <div class="logo-text">
+                <h2>EDUTRAIL LIBRARY</h2>
+                <span>Pathway to Knowledge</span>
+            </div>
+        </div>
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Cari event literasi...">
+            <span class="material-icons" id="mic-btn" title="Cari dengan suara">mic</span>
+            <span class="material-icons">search</span>
+        </div>
+    </div>
+    <nav class="nav-menu">
+        <a href="index.html">Beranda</a>
+        <a href="Profil.html">Profil</a>
+        <a href="Layanan.html">Layanan</a>
+        <a href="index.html#koleksi">Koleksi</a>
+        <a href="event.html">Events</a>
+        <a href="login.html">Login</a>
+    </nav>
+</header>
+
+<div class="event-banner">
+    <h1 style="font-size: 40px;">Agenda Literasi & Edukasi</h1>
+    <p>Jangan lewatkan momen kolaborasi di Edutrail Library</p>
+</div>
+
+<section class="section-container">
+    <div class="section-title">
+        <h2>Event Mendatang</h2>
+        <div></div>
+    </div>
+
+    <div class="grid-3">
+        <div class="event-card">
+            <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=500&q=80" class="event-img">
+            <div class="event-info">
+                <span class="event-tag">WEBINAR | 12 MEI 2026</span>
+                <h3>Strategi Tembus Beasiswa Luar Negeri</h3>
+                <p>Kupas tuntas cara membuat Motivation Letter dan Essay yang memikat panelis beasiswa internasional.</p>
+                <a href="#" class="btn-event">Daftar Sekarang</a>
+            </div>
+        </div>
+
+        <div class="event-card">
+            <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=500&q=80" class="event-img">
+            <div class="event-info">
+                <span class="event-tag">WORKSHOP | 18 MEI 2026</span>
+                <h3>Literasi Digital untuk Generasi Z</h3>
+                <p>Pelatihan memilah informasi valid dan teknik riset cepat menggunakan database perpustakaan modern.</p>
+                <a href="#" class="btn-event">Ikuti Workshop</a>
+            </div>
+        </div>
+
+        <div class="event-card">
+            <img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=500&q=80" class="event-img">
+            <div class="event-info">
+                <span class="event-tag">DISKUSI | 25 MEI 2026</span>
+                <h3>Bedah Buku: "Pathway to Knowledge"</h3>
+                <p>Sesi diskusi eksklusif bersama penulis mengenai masa depan pendidikan dan peran perpustakaan digital.</p>
+                <a href="#" class="btn-event">Reservasi Tempat</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>EDUTRAIL LIBRARY</h4>
+            <p style="font-size: 13px; line-height: 1.8;">Pusat informasi dan literasi modern yang berkomitmen mendukung pendidikan global melalui penyediaan koleksi berkualitas dan layanan digital terdepan.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Navigasi Cepat</h4>
+            <ul>
+                <li><a href="index.html">Beranda Utama</a></li>
+                <li><a href="Profil.html">Profil Perpustakaan</a></li>
+                <li><a href="Layanan.html">Layanan & Fasilitas</a></li>
+                <li><a href="index.html#koleksi">Koleksi Digital</a></li>
+                <li><a href="event.html">Agenda & Events</a></li>
+                <li><a href="login.html">Akses Akun (Login)</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Kontak Kami</h4>
+            <ul>
+                <li><a href="#">Email: alwafi.putihani@gmail.com</a></li>
+                <li><a href="#">WhatsApp: (+62) 813-7188-6934</a></li>
+                <li><a href="#">Alamat: Medan, Sumatera Utara</a></li>
+                <li><a href="#">Jam Layanan: 08:00 - 19:00 WIB</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Ikuti Kami</h4>
+            <ul>
+                <li><a href="#">Instagram @edutrail_lib</a></li>
+                <li><a href="#">YouTube Edutrail Knowledge</a></li>
+                <li><a href="#">Facebook Edutrail Library</a></li>
+                <li><a href="#">Twitter/X @edutrail</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="copyright">
+        &copy; 2026 Edutrail Library. Dikembangkan dengan dedikasi untuk literasi Indonesia.
+    </div>
+</footer>
+
+<a href="feedback.html" class="feedback-btn">Kirim Feedback</a>
+
+<script>
+    // --- JAM & TANGGAL REALTIME ---
+    function updateDateTime() {
+        const sekarang = new Date();
+        const jam = String(sekarang.getHours()).padStart(2, '0');
+        const menit = String(sekarang.getMinutes()).padStart(2, '0');
+        const detik = String(sekarang.getSeconds()).padStart(2, '0');
+        const timeElement = document.getElementById('current-time');
+        if(timeElement) timeElement.innerText = `${jam}:${menit}:${detik}`;
+
+        const opsiTanggal = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        const tanggalString = sekarang.toLocaleDateString('id-ID', opsiTanggal);
+        const dateElement = document.getElementById('current-date');
+        if(dateElement) dateElement.innerText = tanggalString;
+    }
+    setInterval(updateDateTime, 1000);
+    updateDateTime();
+
+    // --- SPEECH RECOGNITION (MIC) ---
+    const micBtn = document.getElementById('mic-btn');
+    const searchInput = document.getElementById('search-input');
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+    if (SpeechRecognition) {
+        const recognition = new SpeechRecognition();
+        recognition.lang = 'id-ID';
+        recognition.onresult = (event) => {
+            const transcript = event.results[0][0].transcript;
+            searchInput.value = transcript;
+            alert("Mencari Event: " + transcript);
+        };
+        micBtn.addEventListener('click', () => {
+            recognition.start();
+            searchInput.placeholder = "Mendengarkan...";
+        });
+    }
+</script>
+
+</body>
+</html>
