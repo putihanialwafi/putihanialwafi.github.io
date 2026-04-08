@@ -9,171 +9,273 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <style>
-        /* CSS Menggunakan Variable yang sama dengan Login untuk Konsistensi */
         :root {
             --primary: #6b4527;
             --secondary: #c8a97e;
             --dark: #3a2416;
             --light: #f7efe6;
+            --accent: #8b5e3c;
             --black-coffee: #1a100a;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, var(--light) 0%, #e6d5c3 100%);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
+            background-color: #fffaf3;
+            color: #3e2a1c;
+            line-height: 1.6;
         }
 
+        /* ===== CSS HEADER (IDENTIK HOMEPAGE) ===== */
         header {
             padding: 15px 5%;
             display: flex;
+            justify-content: space-between;
             align-items: center;
             background: linear-gradient(135deg, var(--dark), var(--black-coffee));
             color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
-        .back-btn { color: var(--secondary); text-decoration: none; display: flex; align-items: center; gap: 8px; font-size: 14px; }
+        .header-left { display: flex; align-items: center; gap: 25px; }
+        .logo-area { display: flex; align-items: center; gap: 12px; min-width: 200px; }
+        .logo-area img { width: 45px; height: 45px; border-radius: 50%; border: 2px solid var(--secondary); object-fit: cover; }
+        .logo-text h2 { font-size: 16px; letter-spacing: 1px; line-height: 1; }
+        .logo-text span { font-size: 10px; color: var(--secondary); text-transform: uppercase; }
 
-        .reg-container {
-            flex-grow: 1;
+        .search-container {
+            display: flex; align-items: center; background: rgba(255, 255, 255, 0.1);
+            padding: 5px 15px; border-radius: 30px; border: 1px solid rgba(200, 169, 126, 0.3);
+            width: 350px; transition: 0.3s;
+        }
+
+        .search-container input { background: none; border: none; color: white; padding: 5px; width: 100%; outline: none; }
+        .search-container .material-icons { font-size: 20px; color: var(--secondary); cursor: pointer; }
+
+        .nav-menu { display: flex; gap: 8px; }
+        .nav-menu a {
+            text-decoration: none; color: #e6d3b2; font-size: 13px;
+            padding: 8px 12px; border-radius: 8px; transition: 0.3s;
+        }
+        .nav-menu a:hover { color: white; background: rgba(200, 169, 126, 0.2); }
+
+        /* ===== CSS FORM DAFTAR (TENGAH) ===== */
+        .reg-section {
+            padding: 60px 5%;
             display: flex;
             justify-content: center;
-            align-items: center;
-            padding: 40px 20px;
+            background: linear-gradient(rgba(247, 239, 230, 0.9), rgba(247, 239, 230, 0.9)), 
+                        url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&w=1400&q=80');
+            background-size: cover;
+            background-position: center;
         }
 
         .reg-box {
             background: white;
             width: 100%;
-            max-width: 500px; /* Lebih lebar sedikit dari login */
+            max-width: 600px;
             padding: 40px;
-            border-radius: 24px;
-            box-shadow: 0 20px 50px rgba(58, 36, 22, 0.15);
+            border-radius: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border: 1px solid rgba(200, 169, 126, 0.2);
         }
 
-        .reg-header { text-align: center; margin-bottom: 30px; }
-        .reg-header h2 { color: var(--dark); font-size: 24px; font-weight: 700; }
-
+        .reg-header { text-align: center; margin-bottom: 35px; }
+        .reg-header h2 { color: var(--dark); font-size: 26px; font-weight: 700; margin-bottom: 5px; }
+        
         .form-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 15px;
+            gap: 20px;
         }
 
-        .form-group { margin-bottom: 15px; }
         .full-width { grid-column: span 2; }
 
-        label { display: block; font-size: 11px; font-weight: 600; color: var(--primary); margin-bottom: 5px; text-transform: uppercase; }
-
-        input, select {
-            width: 100%;
-            padding: 10px 15px;
-            border-radius: 10px;
-            border: 1.5px solid #eee;
-            font-family: inherit;
-            outline: none;
-            font-size: 14px;
+        .form-group label {
+            display: block; font-size: 11px; font-weight: 700; 
+            color: var(--primary); margin-bottom: 8px; text-transform: uppercase;
         }
 
-        input:focus { border-color: var(--secondary); }
+        .form-group input, .form-group select {
+            width: 100%; padding: 12px 15px; border-radius: 12px;
+            border: 1.5px solid #eee; font-family: inherit; font-size: 14px;
+            outline: none; transition: 0.3s; background-color: #fcfcfc;
+        }
+
+        .form-group input:focus { border-color: var(--secondary); background-color: #fff; }
 
         .terms {
-            font-size: 12px;
-            color: #777;
-            margin: 15px 0;
-            display: flex;
-            gap: 10px;
-            align-items: flex-start;
+            grid-column: span 2; font-size: 12px; color: #666;
+            margin: 10px 0; display: flex; gap: 10px; align-items: flex-start;
         }
 
-        .terms input { width: auto; margin-top: 3px; }
-
-        button {
-            width: 100%;
-            padding: 14px;
-            background: linear-gradient(135deg, var(--secondary), #b48a5a);
-            color: var(--dark);
-            border: none;
-            border-radius: 12px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: 0.3s;
+        .btn-reg {
+            grid-column: span 2; padding: 15px;
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white; border: none; border-radius: 15px;
+            font-weight: 700; font-size: 15px; cursor: pointer; transition: 0.3s;
+            margin-top: 10px;
         }
 
-        button:hover { opacity: 0.9; transform: translateY(-2px); }
+        .btn-reg:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(107, 69, 39, 0.2); }
 
-        .footer-link { text-align: center; margin-top: 20px; font-size: 14px; }
-        .footer-link a { color: var(--primary); font-weight: 600; text-decoration: none; }
+        .login-link { text-align: center; margin-top: 25px; font-size: 14px; color: #888; }
+        .login-link a { color: var(--primary); text-decoration: none; font-weight: 700; }
+
+        /* ===== CSS FOOTER (IDENTIK HOMEPAGE) ===== */
+        footer {
+            background: var(--black-coffee); color: #d1bfa7; padding: 80px 8% 30px;
+        }
+        .footer-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 50px; margin-bottom: 50px;
+        }
+        .footer-col h4 { color: white; margin-bottom: 25px; font-size: 18px; position: relative; }
+        .footer-col h4::after { content:''; position:absolute; left:0; bottom:-8px; width:30px; height:2px; background:var(--secondary); }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 12px; }
+        .footer-col a { color: #d1bfa7; text-decoration: none; font-size: 14px; transition: 0.3s; }
+        .footer-col a:hover { color: var(--secondary); padding-left: 5px; }
+        .copyright { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 13px; color: #555; }
     </style>
 </head>
 <body>
 
 <header>
-    <a href="login.html" class="back-btn">
-        <span class="material-icons">arrow_back</span> Kembali Login
-    </a>
+    <div class="header-left">
+        <div class="logo-area">
+            <img src="logo.png" alt="Logo">
+            <div class="logo-text">
+                <h2>EDUTRAIL LIBRARY</h2>
+                <span>Pathway to Knowledge</span>
+            </div>
+        </div>
+        <div class="search-container">
+            <input type="text" placeholder="Cari judul buku atau penulis...">
+            <span class="material-icons">search</span>
+        </div>
+    </div>
+    <nav class="nav-menu">
+        <a href="index.html">Beranda</a>
+        <a href="Profil.html">Profil</a>
+        <a href="Layanan.html">Layanan</a>
+        <a href="index.html#koleksi">Koleksi</a>
+        <a href="event.html">Events</a>
+        <a href="login.html">Login</a>
+    </nav>
 </header>
 
-<div class="reg-container">
+<div class="reg-section">
     <div class="reg-box">
         <div class="reg-header">
             <h2>Pendaftaran Anggota</h2>
-            <p style="font-size: 13px; color: #888;">Bergabunglah dengan komunitas literasi digital kami</p>
+            <p style="font-size: 13px; color: #888;">Lengkapi data diri untuk akses penuh layanan Edutrail</p>
         </div>
 
         <form action="#">
             <div class="form-grid">
                 <div class="form-group full-width">
                     <label>Nama Lengkap</label>
-                    <input type="text" placeholder="Sesuai kartu identitas" required>
+                    <input type="text" placeholder="Nama sesuai kartu identitas" required>
                 </div>
+                
                 <div class="form-group">
-                    <label>Email</label>
-                    <input type="email" placeholder="email@contoh.com" required>
+                    <label>Email Aktif</label>
+                    <input type="email" placeholder="contoh@email.com" required>
                 </div>
+
                 <div class="form-group">
                     <label>No. WhatsApp</label>
-                    <input type="tel" placeholder="0812..." required>
+                    <input type="tel" placeholder="0812xxxx" required>
                 </div>
+
                 <div class="form-group">
                     <label>Username</label>
-                    <input type="text" placeholder="User123" required>
+                    <input type="text" placeholder="Buat nama pengguna" required>
                 </div>
+
                 <div class="form-group">
-                    <label>Pekerjaan</label>
+                    <label>Status/Pekerjaan</label>
                     <select>
                         <option>Mahasiswa</option>
                         <option>Pelajar</option>
+                        <option>Dosen/Guru</option>
                         <option>Umum</option>
                     </select>
                 </div>
+
                 <div class="form-group">
                     <label>Kata Sandi</label>
                     <input type="password" placeholder="Minimal 8 karakter" required>
                 </div>
+
                 <div class="form-group">
                     <label>Konfirmasi Sandi</label>
-                    <input type="password" placeholder="Ulangi sandi" required>
+                    <input type="password" placeholder="Ulangi kata sandi" required>
                 </div>
-            </div>
 
-            <div class="terms">
-                <input type="checkbox" required>
-                <span>Saya setuju dengan Syarat & Ketentuan serta Kebijakan Privasi Edutrail Library.</span>
-            </div>
+                <div class="terms">
+                    <input type="checkbox" required style="width: auto;">
+                    <span>Saya setuju dengan Syarat & Ketentuan serta Kebijakan Privasi yang berlaku di Edutrail Library.</span>
+                </div>
 
-            <button type="submit">DAFTAR SEKARANG</button>
+                <button type="submit" class="btn-reg">DAFTAR SEKARANG</button>
+            </div>
         </form>
 
-        <div class="footer-link">
-            Sudah punya akun? <a href="login.html">Masuk di sini</a>
+        <div class="login-link">
+            Sudah memiliki akun anggota? <a href="login.html">Masuk di sini</a>
         </div>
     </div>
 </div>
+
+<footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>EDUTRAIL LIBRARY</h4>
+            <p style="font-size: 13px; line-height: 1.8;">Pusat informasi dan literasi modern yang berkomitmen mendukung pendidikan global melalui penyediaan koleksi berkualitas dan layanan digital terdepan.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Navigasi Cepat</h4>
+            <ul>
+                <li><a href="index.html">Beranda Utama</a></li>
+                <li><a href="Profil.html">Profil Perpustakaan</a></li>
+                <li><a href="Layanan.html">Layanan & Fasilitas</a></li>
+                <li><a href="index.html#koleksi">Koleksi Digital</a></li>
+                <li><a href="event.html">Agenda & Events</a></li>
+                <li><a href="login.html">Akses Akun (Login)</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Kontak Kami</h4>
+            <ul>
+                <li><a href="#">Email: alwafi.putihani@gmail.com</a></li>
+                <li><a href="#">WhatsApp: (+62) 813-7188-6934</a></li>
+                <li><a href="#">Alamat: Medan, Sumatera Utara</a></li>
+                <li><a href="#">Jam Layanan: 08:00 - 19:00 WIB</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Ikuti Kami</h4>
+            <ul>
+                <li><a href="#">Instagram @edutrail_lib</a></li>
+                <li><a href="#">YouTube Edutrail Knowledge</a></li>
+                <li><a href="#">Facebook Edutrail Library</a></li>
+                <li><a href="#">Twitter/X @edutrail</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="copyright">
+        &copy; 2026 Edutrail Library. Dikembangkan dengan dedikasi untuk literasi Indonesia.
+    </div>
+</footer>
 
 </body>
 </html>
