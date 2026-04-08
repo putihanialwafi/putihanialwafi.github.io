@@ -1,178 +1,260 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<title>Tentang - EduTrail Library</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang Penggagas - EDUTRAIL LIBRARY</title>
+    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+    <style>
+        :root {
+            --primary: #6b4527;
+            --secondary: #c8a97e;
+            --dark: #3a2416;
+            --light: #f7efe6;
+            --accent: #8b5e3c;
+            --black-coffee: #1a100a;
+            --white: #ffffff;
+            --soft-brown: #f4e7d8;
+        }
 
-body{
-    font-family:"Segoe UI",sans-serif;
-    background:linear-gradient(135deg,#f7efe6,#c8a97e);
-    color:#3e2a1c;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-/* HEADER */
-header{
-    background:linear-gradient(135deg,#6b4527,#3a2416);
-    color:white;
-    text-align:center;
-    padding:55px 20px; /* diperkecil */
-}
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fffaf3;
+            color: #3e2a1c;
+            line-height: 1.7;
+        }
 
-header h1{
-    font-size:26px; /* lebih proporsional */
-    letter-spacing:2px;
-    font-weight:bold;
-}
+        /* ===== CSS HEADER (IDENTIK HOMEPAGE) ===== */
+        header {
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(135deg, var(--dark), var(--black-coffee));
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
 
-header p{
-    margin-top:10px;
-    font-size:14px;
-    opacity:0.9;
-    letter-spacing:1px;
-    font-style:italic; /* slogan miring */
-}
+        .header-left { display: flex; align-items: center; gap: 25px; }
+        .logo-area { display: flex; align-items: center; gap: 12px; min-width: 200px; }
+        .logo-area img { width: 45px; height: 45px; border-radius: 50%; border: 2px solid var(--secondary); object-fit: cover; }
+        .logo-text h2 { font-size: 16px; letter-spacing: 1px; line-height: 1; font-family: 'Poppins', sans-serif; }
+        .logo-text span { font-size: 10px; color: var(--secondary); text-transform: uppercase; }
 
-/* CONTAINER */
-.container{
-    max-width:950px;
-    margin:80px auto;
-    padding:0 30px;
-}
+        .search-container {
+            display: flex; align-items: center; background: rgba(255, 255, 255, 0.1);
+            padding: 5px 15px; border-radius: 30px; border: 1px solid rgba(200, 169, 126, 0.3);
+            width: 350px; transition: 0.3s;
+        }
 
-.profile{
-    background:white;
-    padding:50px;
-    border-radius:30px;
-    box-shadow:0 25px 50px rgba(90,60,30,0.3);
-    display:grid;
-    grid-template-columns:260px 1fr;
-    gap:40px;
-    align-items:center;
-}
+        .search-container input { background: none; border: none; color: white; padding: 5px; width: 100%; outline: none; }
+        .search-container .material-icons { font-size: 20px; color: var(--secondary); cursor: pointer; }
 
-.photo img{
-    width:220px;
-    height:220px;
-    object-fit:cover;
-    border-radius:20px;
-    box-shadow:0 15px 35px rgba(0,0,0,0.2);
-}
+        .nav-menu { display: flex; gap: 8px; }
+        .nav-menu a {
+            text-decoration: none; color: #e6d3b2; font-size: 13px;
+            padding: 8px 12px; border-radius: 8px; transition: 0.3s;
+        }
+        .nav-menu a:hover { color: white; background: rgba(200, 169, 126, 0.2); }
 
-.name{
-    font-size:24px;
-    font-weight:bold;
-    color:#5a3c1e;
-}
+        /* ===== HERO AREA (PENGGAGAS) ===== */
+        .hero-header {
+            background: linear-gradient(rgba(58, 36, 22, 0.8), rgba(58, 36, 22, 0.8)), 
+                        url('https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?auto=format&fit=crop&w=2000');
+            background-size: cover;
+            background-position: center;
+            height: 350px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: var(--white);
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+        }
 
-.title{
-    font-size:15px;
-    margin-top:5px;
-    margin-bottom:20px;
-    color:#7a5a3a;
-}
+        .hero-header h1 { font-family: 'Plus Jakarta Sans'; font-size: 2.5rem; font-weight: 800; letter-spacing: 3px; margin-bottom: 10px; }
+        .hero-header p { color: var(--secondary); font-weight: 600; letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem; }
 
-.desc{
-    line-height:1.8;
-    margin-bottom:20px;
-}
+        /* ===== PROFILE CONTAINER ===== */
+        .main-container {
+            max-width: 1100px;
+            margin: -80px auto 100px;
+            padding: 0 20px;
+            position: relative;
+        }
 
-.reason{
-    background:#f4e7d8;
-    padding:25px;
-    border-radius:20px;
-    line-height:1.8;
-}
+        .profile-card {
+            background: var(--white);
+            border-radius: 40px;
+            padding: 60px;
+            box-shadow: 0 30px 70px rgba(58, 36, 22, 0.12);
+            display: flex;
+            gap: 60px;
+            align-items: flex-start;
+        }
 
-.cv-button{
-    text-align:center;
-    margin-top:60px;
-}
+        .photo-frame { flex: 1; position: relative; }
+        .photo-frame img { width: 100%; max-width: 320px; border-radius: 30px; border: 2px solid var(--light); }
+        .photo-frame::before {
+            content: ''; position: absolute; top: 20px; left: -20px; width: 100%; height: 100%;
+            background: var(--secondary); border-radius: 30px; z-index: -1; opacity: 0.2;
+        }
 
-.cv-button a{
-    display:inline-block;
-    padding:14px 35px;
-    background:#5a3c1e;
-    color:white;
-    text-decoration:none;
-    border-radius:40px;
-    font-size:14px;
-    transition:0.3s;
-}
+        .profile-info { flex: 1.5; }
+        .profile-info h2 { font-family: 'Plus Jakarta Sans'; font-size: 2.2rem; color: var(--dark); margin-bottom: 5px; }
+        .profile-info .subtitle { font-size: 1.1rem; color: var(--primary); font-weight: 600; margin-bottom: 30px; display: block; }
 
-.cv-button a:hover{
-    background:#3a2416;
-}
+        .manifesto-box {
+            background: var(--soft-brown); padding: 35px; border-radius: 25px;
+            border-left: 6px solid var(--secondary); margin: 25px 0;
+        }
 
-footer{
-    text-align:center;
-    padding:30px;
-    background:#5a3c1e;
-    color:white;
-    margin-top:80px;
-    font-size:14px;
-}
+        .action-group { margin-top: 40px; display: flex; gap: 15px; }
+        .btn {
+            padding: 15px 30px; border-radius: 50px; text-decoration: none;
+            font-weight: 700; font-size: 0.9rem; transition: 0.3s; display: inline-flex; align-items: center; gap: 10px;
+        }
+        .btn-primary { background: var(--primary); color: var(--white); }
+        .btn-outline { border: 2px solid var(--primary); color: var(--primary); }
+        .btn:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
 
-@media(max-width:800px){
-    .profile{
-        grid-template-columns:1fr;
-        text-align:center;
-    }
-}
-</style>
+        /* ===== CSS FOOTER (IDENTIK HOMEPAGE) ===== */
+        footer {
+            background: var(--black-coffee); color: #d1bfa7; padding: 80px 8% 30px;
+        }
+        .footer-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 50px; margin-bottom: 50px;
+        }
+        .footer-col h4 { color: white; margin-bottom: 25px; font-size: 18px; position: relative; }
+        .footer-col h4::after { content:''; position:absolute; left:0; bottom:-8px; width:30px; height:2px; background:var(--secondary); }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 12px; }
+        .footer-col a { color: #d1bfa7; text-decoration: none; font-size: 14px; transition: 0.3s; }
+        .footer-col a:hover { color: var(--secondary); padding-left: 5px; }
+        .copyright { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 13px; color: #555; }
+
+        @media (max-width: 900px) {
+            .profile-card { flex-direction: column; padding: 40px; text-align: center; }
+            .photo-frame img { margin: 0 auto; }
+            .action-group { justify-content: center; }
+        }
+    </style>
 </head>
-
 <body>
 
 <header>
-    <h1>TENTANG PENGGAGAS</h1>
-    <p>EduTrail Library - Pathway to Knowledge</p>
+    <div class="header-left">
+        <div class="logo-area">
+            <img src="logo.png" alt="Logo">
+            <div class="logo-text">
+                <h2>EDUTRAIL LIBRARY</h2>
+                <span>Pathway to Knowledge</span>
+            </div>
+        </div>
+        <div class="search-container">
+            <input type="text" placeholder="Cari info penggagas...">
+            <span class="material-icons">search</span>
+        </div>
+    </div>
+    <nav class="nav-menu">
+        <a href="index.html">Beranda</a>
+        <a href="Profil.html">Profil</a>
+        <a href="Layanan.html">Layanan</a>
+        <a href="index.html#koleksi">Koleksi</a>
+        <a href="event.html">Events</a>
+        <a href="login.html">Login</a>
+    </nav>
 </header>
 
-<div class="container">
+<div class="hero-header">
+    <h1>THE VISIONARY</h1>
+    <p>EduTrail Library • Pathway to Knowledge</p>
+</div>
 
-    <div class="profile">
-        
-        <div class="photo">
-            <img src="foto html.jpeg" alt="Foto Profil">
+<div class="main-container">
+    <section class="profile-card">
+        <div class="photo-frame">
+            <img src="foto html.jpeg" alt="Puti Hani Alwafi">
         </div>
 
-        <div>
-            <div class="name">Puti Hani Alwafi</div>
-            <div class="title">Mahasiswa S1 Perpustakaan dan Sains Informasi</div>
+        <div class="profile-info">
+            <h2>Puti Hani Alwafi</h2>
+            <span class="subtitle">Founder & Lead Developer of EduTrail</span>
+            
+            <p>Sebagai mahasiswa Perpustakaan dan Sains Informasi di Universitas Sumatera Utara, saya percaya bahwa akses terhadap informasi yang terstruktur adalah kunci dari kesuksesan akademik global.</p>
+            
+            <p>Melalui keahlian dalam manajemen database dan pengembangan web, saya berupaya mentransformasi perpustakaan konvensional menjadi ekosistem digital yang adaptif bagi pelajar masa kini.</p>
 
-            <div class="desc">
-                Berfokus pada pengembangan literasi digital, manajemen informasi, 
-                dan inovasi perpustakaan berbasis teknologi untuk mendukung 
-                pembelajaran yang relevan dengan kebutuhan global.
+            <div class="manifesto-box">
+                <h4><i class="fas fa-quote-left"></i> Mengapa EduTrail Library?</h4>
+                <p>Lahir dari kebutuhan akan navigasi pendidikan yang presisi. EduTrail tidak hanya menyimpan buku, tapi merancang <strong>"Reading Path"</strong> — sebuah jalur kurasi yang memastikan setiap langkah pembelajar memiliki arah yang jelas menuju impian internasional mereka.</p>
             </div>
 
-            <div class="reason">
-                <strong>Mengapa EduTrail Library dibuat?</strong><br><br>
-                EduTrail Library lahir dari gagasan bahwa perpustakaan tidak hanya 
-                menjadi ruang penyimpanan informasi, tetapi pusat perencanaan masa depan. 
-                Platform ini dirancang untuk membantu siswa merancang jalur akademik 
-                secara terarah, terstruktur, dan siap menghadapi peluang pendidikan 
-                di tingkat nasional maupun internasional.
+            <div class="action-group">
+                <a href="cvCSS.html" class="btn btn-primary">
+                    <i class="fas fa-id-card"></i> Lihat CV
+                </a>
+                <a href="index.html" class="btn btn-outline">
+                    <i class="fas fa-home"></i> Kembali Ke Beranda
+                </a>
             </div>
         </div>
-
-    </div>
-
-    <div class="cv-button">
-        <a href="cvCSS.html">Lihat Curriculum Vitae</a>
-    </div>
-
+    </section>
 </div>
 
 <footer>
-    © 2026 EduTrail Library
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>EDUTRAIL LIBRARY</h4>
+            <p style="font-size: 13px; line-height: 1.8;">Pusat informasi dan literasi modern yang berkomitmen mendukung pendidikan global melalui penyediaan koleksi berkualitas dan layanan digital terdepan.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Navigasi Cepat</h4>
+            <ul>
+                <li><a href="index.html">Beranda Utama</a></li>
+                <li><a href="Profil.html">Profil Perpustakaan</a></li>
+                <li><a href="Layanan.html">Layanan & Fasilitas</a></li>
+                <li><a href="index.html#koleksi">Koleksi Digital</a></li>
+                <li><a href="event.html">Agenda & Events</a></li>
+                <li><a href="login.html">Akses Akun (Login)</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Kontak Kami</h4>
+            <ul>
+                <li><a href="#">Email: alwafi.putihani@gmail.com</a></li>
+                <li><a href="#">WhatsApp: (+62) 813-7188-6934</a></li>
+                <li><a href="#">Alamat: Medan, Sumatera Utara</a></li>
+                <li><a href="#">Jam Layanan: 08:00 - 19:00 WIB</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Ikuti Kami</h4>
+            <ul>
+                <li><a href="#">Instagram @edutrail_lib</a></li>
+                <li><a href="#">YouTube Edutrail Knowledge</a></li>
+                <li><a href="#">Facebook Edutrail Library</a></li>
+                <li><a href="#">Twitter/X @edutrail</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="copyright">
+        &copy; 2026 Edutrail Library. Dikembangkan dengan dedikasi untuk literasi Indonesia.
+    </div>
 </footer>
 
 </body>
