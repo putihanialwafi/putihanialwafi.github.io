@@ -1,182 +1,331 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<title>Feedback - PERPUSTAKAAN HANI</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback - EDUTRAIL LIBRARY</title>
+    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6b4527;
+            --secondary: #c8a97e;
+            --dark: #3a2416;
+            --light: #f7efe6;
+            --accent: #8b5e3c;
+            --black-coffee: #1a100a;
+        }
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
-body{
-    font-family:"Segoe UI",sans-serif;
-    background:linear-gradient(135deg,#f7efe6,#c8a97e);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    min-height:100vh;
-    position:relative;
-}
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fffaf3;
+            color: #3e2a1c;
+            line-height: 1.6;
+        }
 
-/* Back Button */
-.back-btn{
-    position:absolute;
-    top:25px;
-    left:25px;
-    text-decoration:none;
-    color:#3e2a1c;
-    font-size:28px;
-    transition:0.3s;
-}
+        /* ===== TOP BAR (IDENTIK HOMEPAGE) ===== */
+        .top-bar {
+            background: var(--black-coffee);
+            color: var(--secondary);
+            padding: 8px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            border-bottom: 1px solid rgba(200, 169, 126, 0.2);
+        }
+        .top-bar-info { display: flex; gap: 25px; align-items: center; }
+        .top-bar-info span { display: flex; align-items: center; gap: 6px; }
+        .top-bar-social { display: flex; align-items: center; gap: 15px; }
+        .top-bar-social a { color: var(--secondary); text-decoration: none; }
 
-.back-btn:hover{
-    transform:translateX(-6px);
-    color:#8b5e3c;
-}
+        /* ===== HEADER (IDENTIK HOMEPAGE) ===== */
+        header {
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(135deg, var(--dark), var(--black-coffee));
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .header-left { display: flex; align-items: center; gap: 25px; }
+        .logo-area { display: flex; align-items: center; gap: 12px; min-width: 200px; }
+        .logo-area img { width: 45px; height: 45px; border-radius: 50%; border: 2px solid var(--secondary); object-fit: cover; }
+        .logo-text h2 { font-size: 16px; letter-spacing: 1px; line-height: 1; }
+        .logo-text span { font-size: 10px; color: var(--secondary); text-transform: uppercase; }
 
-/* Form Container */
-.form-container{
-    background:linear-gradient(180deg,#fffdf9,#f0e0c7);
-    padding:50px 45px;
-    border-radius:30px;
-    width:420px;
-    box-shadow:0 25px 50px rgba(90,60,30,0.4);
-    text-align:center;
-    transition:0.3s;
-}
+        .search-container {
+            display: flex; align-items: center; background: rgba(255, 255, 255, 0.1);
+            padding: 5px 15px; border-radius: 30px; border: 1px solid rgba(200, 169, 126, 0.3);
+            width: 350px;
+        }
+        .search-container input { background: none; border: none; color: white; padding: 5px; width: 100%; outline: none; }
+        .search-container .material-icons { font-size: 20px; color: var(--secondary); }
 
-.form-container:hover{
-    transform:translateY(-8px);
-}
+        .nav-menu { display: flex; gap: 8px; }
+        .nav-menu a {
+            text-decoration: none; color: #e6d3b2; font-size: 13px;
+            padding: 8px 12px; border-radius: 8px; transition: 0.3s;
+        }
+        .nav-menu a:hover { color: white; background: rgba(200, 169, 126, 0.2); }
 
-.form-container h2{
-    margin-bottom:25px;
-    color:#5a3e2b;
-    letter-spacing:1px;
-}
+        /* ===== FEEDBACK FORM SECTION ===== */
+        .feedback-section {
+            padding: 80px 5%;
+            background: url('https://www.transparenttextures.com/patterns/wood-pattern.png');
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 70vh;
+        }
 
-.input-group{
-    margin-bottom:18px;
-    text-align:left;
-}
+        .form-container {
+            background: white;
+            padding: 50px 45px;
+            border-radius: 30px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 25px 50px rgba(90,60,30,0.15);
+            text-align: center;
+            border: 1px solid var(--light);
+        }
 
-.input-group label{
-    font-size:13px;
-    margin-bottom:6px;
-    display:block;
-}
+        .form-container h2 {
+            color: var(--dark);
+            margin-bottom: 10px;
+            font-size: 28px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
 
-.input-group input,
-.input-group textarea{
-    width:100%;
-    padding:12px 14px;
-    border-radius:15px;
-    border:1px solid #d6bfa1;
-    outline:none;
-    transition:0.3s;
-    resize:none;
-}
+        .form-container p {
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 30px;
+        }
 
-.input-group textarea{
-    height:110px;
-}
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
 
-.input-group input:focus,
-.input-group textarea:focus{
-    border-color:#8b5e3c;
-    box-shadow:0 0 8px rgba(139,94,60,0.4);
-}
+        .input-group label {
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            display: block;
+            color: var(--primary);
+            text-transform: uppercase;
+        }
 
-/* CTA */
-.cta-btn{
-    width:100%;
-    padding:14px;
-    border:none;
-    border-radius:30px;
-    background:linear-gradient(135deg,#8b5e3c,#5a3e2b);
-    color:white;
-    font-size:14px;
-    cursor:pointer;
-    margin-top:12px;
-    transition:0.3s;
-}
+        .input-group input,
+        .input-group textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border-radius: 12px;
+            border: 2px solid var(--light);
+            outline: none;
+            transition: 0.3s;
+            font-family: 'Poppins', sans-serif;
+            background: #fdfcfb;
+        }
 
-.cta-btn:hover{
-    transform:scale(1.05);
-    background:#c8a97e;
-    color:#3e2a1c;
-}
+        .input-group textarea { height: 120px; resize: none; }
 
-/* Notification */
-.notification{
-    position:fixed;
-    top:30px;
-    right:30px;
-    background:linear-gradient(135deg,#8b5e3c,#5a3e2b);
-    color:white;
-    padding:15px 25px;
-    border-radius:25px;
-    box-shadow:0 15px 35px rgba(0,0,0,0.4);
-    display:none;
-    animation:fadeIn 0.5s ease;
-}
+        .input-group input:focus,
+        .input-group textarea:focus {
+            border-color: var(--secondary);
+            background: white;
+            box-shadow: 0 5px 15px rgba(200, 169, 126, 0.2);
+        }
 
-@keyframes fadeIn{
-    from{opacity:0; transform:translateY(-20px);}
-    to{opacity:1; transform:translateY(0);}
-}
-</style>
+        .cta-btn {
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: 35px;
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            letter-spacing: 1px;
+            transition: 0.4s;
+            box-shadow: 0 10px 20px rgba(58, 36, 22, 0.2);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px rgba(58, 36, 22, 0.3);
+            background: var(--accent);
+        }
+
+        /* ===== FOOTER (IDENTIK HOMEPAGE) ===== */
+        footer {
+            background: var(--black-coffee); color: #d1bfa7; padding: 80px 8% 30px;
+        }
+        .footer-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 50px; margin-bottom: 50px;
+        }
+        .footer-col h4 { color: white; margin-bottom: 25px; font-size: 18px; position: relative; }
+        .footer-col h4::after { content:''; position:absolute; left:0; bottom:-8px; width:30px; height:2px; background:var(--secondary); }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 12px; }
+        .footer-col a { color: #d1bfa7; text-decoration: none; font-size: 14px; transition: 0.3s; }
+        .footer-col a:hover { color: var(--secondary); padding-left: 5px; }
+        .copyright { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 13px; color: #555; }
+
+        /* Notification */
+        .notification {
+            position: fixed; top: 100px; right: 30px;
+            background: #27ae60; color: white;
+            padding: 15px 30px; border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            display: none; z-index: 2000;
+            animation: slideIn 0.5s ease forwards;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+    </style>
 </head>
-
 <body>
 
-<a href="index.html" class="back-btn">
-    <span class="material-icons">arrow_back</span>
-</a>
-
-<div class="form-container">
-    <h2>FEEDBACK</h2>
-
-    <form id="feedbackForm">
-        <div class="input-group">
-            <label>Nama</label>
-            <input type="text" required>
-        </div>
-
-        <div class="input-group">
-            <label>Email</label>
-            <input type="email" required>
-        </div>
-
-        <div class="input-group">
-            <label>Pesan / Saran</label>
-            <textarea required></textarea>
-        </div>
-
-        <button type="submit" class="cta-btn">KIRIM FEEDBACK</button>
-    </form>
+<div class="top-bar">
+    <div class="top-bar-info">
+        <span><i class="material-icons" style="font-size:14px">calendar_today</i> <span id="current-date"></span></span>
+        <span><i class="material-icons" style="font-size:14px">access_time</i> <span id="current-time"></span></span>
+    </div>
+    <div class="top-bar-social">
+        <a href="#"><i class="material-icons" style="font-size:16px">facebook</i></a>
+        <a href="#" style="margin-left: 10px; font-size: 12px; font-weight: bold;">INSTAGRAM</a>
+    </div>
 </div>
+
+<header>
+    <div class="header-left">
+        <div class="logo-area">
+            <img src="logo.png" alt="Logo">
+            <div class="logo-text">
+                <h2>EDUTRAIL LIBRARY</h2>
+                <span>Pathway to Knowledge</span>
+            </div>
+        </div>
+        <div class="search-container">
+            <input type="text" placeholder="Cari layanan...">
+            <span class="material-icons">search</span>
+        </div>
+    </div>
+    <nav class="nav-menu">
+        <a href="index.html">Beranda</a>
+        <a href="Profil.html">Profil</a>
+        <a href="Layanan.html">Layanan</a>
+        <a href="index.html#koleksi">Koleksi</a>
+        <a href="event.html">Events</a>
+        <a href="login.html">Login</a>
+    </nav>
+</header>
+
+<section class="feedback-section">
+    <div class="form-container">
+        <h2>Suara Anda</h2>
+        <p>Bantu kami menjadi lebih baik dengan memberikan saran atau kesan Anda.</p>
+
+        <form id="feedbackForm">
+            <div class="input-group">
+                <label>Nama Lengkap</label>
+                <input type="text" placeholder="Masukkan nama Anda" required>
+            </div>
+
+            <div class="input-group">
+                <label>Alamat Email</label>
+                <input type="email" placeholder="nama@email.com" required>
+            </div>
+
+            <div class="input-group">
+                <label>Pesan / Saran</label>
+                <textarea placeholder="Tuliskan masukan Anda di sini..." required></textarea>
+            </div>
+
+            <button type="submit" class="cta-btn">KIRIM MASUKAN</button>
+        </form>
+    </div>
+</section>
 
 <div class="notification" id="notif">
-    Terima Kasih atas Feedback Anda
+    <div style="display:flex; align-items:center; gap:10px;">
+        <span class="material-icons">check_circle</span>
+        <span>Terima Kasih! Feedback Anda telah terkirim.</span>
+    </div>
 </div>
 
+<footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>EDUTRAIL LIBRARY</h4>
+            <p style="font-size: 13px; line-height: 1.8;">Pusat informasi dan literasi modern yang berkomitmen mendukung pendidikan global melalui penyediaan koleksi berkualitas.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Navigasi Cepat</h4>
+            <ul>
+                <li><a href="index.html">Beranda Utama</a></li>
+                <li><a href="Profil.html">Profil Perpustakaan</a></li>
+                <li><a href="Layanan.html">Layanan & Fasilitas</a></li>
+                <li><a href="event.html">Agenda & Events</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Kontak Kami</h4>
+            <ul>
+                <li><a href="#">Email: alwafi.putihani@gmail.com</a></li>
+                <li><a href="#">WhatsApp: (+62) 813-7188-6934</a></li>
+                <li><a href="#">Medan, Sumatera Utara</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Ikuti Kami</h4>
+            <ul>
+                <li><a href="#">Instagram @edutrail_lib</a></li>
+                <li><a href="#">YouTube Edutrail Knowledge</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="copyright">
+        &copy; 2026 Edutrail Library. Dikembangkan dengan dedikasi untuk literasi Indonesia.
+    </div>
+</footer>
+
 <script>
-document.getElementById("feedbackForm").addEventListener("submit", function(e){
-    e.preventDefault();
+    // Update Time & Date
+    function updateDateTime() {
+        const now = new Date();
+        document.getElementById('current-time').innerText = now.toLocaleTimeString('id-ID');
+        document.getElementById('current-date').innerText = now.toLocaleDateString('id-ID', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    }
+    setInterval(updateDateTime, 1000);
+    updateDateTime();
 
-    const notif = document.getElementById("notif");
-    notif.style.display = "block";
-
-    setTimeout(function(){
-        window.location.href = "index.html";
-    }, 2000);
-});
+    // Form Logic
+    document.getElementById("feedbackForm").addEventListener("submit", function(e){
+        e.preventDefault();
+        const notif = document.getElementById("notif");
+        notif.style.display = "block";
+        
+        setTimeout(function(){
+            window.location.href = "index.html";
+        }, 2500);
+    });
 </script>
 
 </body>
