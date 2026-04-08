@@ -1,356 +1,609 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<title>EDUTRAIL LIBRARY</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EDUTRAIL LIBRARY - Pusat Literasi Modern</title>
+    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6b4527;
+            --secondary: #c8a97e;
+            --dark: #3a2416;
+            --light: #f7efe6;
+            --accent: #8b5e3c;
+            --black-coffee: #1a100a;
+        }
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-body{
-    font-family:"Segoe UI",sans-serif;
-    background:linear-gradient(135deg,#f7efe6,#c8a97e);
-    color:#3e2a1c;
-}
+        html {
+            scroll-behavior: smooth;
+        }
 
-/* ===== HEADER ===== */
-header{
-    padding:20px 55px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    background:linear-gradient(135deg,#6b4527,#3a2416);
-    color:white;
-}
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fffaf3;
+            color: #3e2a1c;
+            line-height: 1.6;
+        }
 
-/* AREA LOGO */
-.logo-area{
-    display:flex;
-    align-items:center;
-    gap:12px;
-}
+        /* Offset agar judul tidak tertutup header saat scroll ke ID */
+        section[id] {
+            scroll-margin-top: 100px;
+        }
 
-/* LOGO IMAGE BULAT */
-.logo-area img{
-    width:45px;
-    height:45px;
-    border-radius:50%;
-    object-fit:cover;
-    border:2px solid #c8a97e;
-}
+        /* ===== TOP BAR STYLING ===== */
+        .top-bar {
+            background: var(--black-coffee);
+            color: var(--secondary);
+            padding: 8px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            border-bottom: 1px solid rgba(200, 169, 126, 0.2);
+        }
 
-/* TEKS NAMA */
-.logo-text{
-    display:flex;
-    flex-direction:column;
-}
+        .top-bar-info {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
 
-.logo-text h2{
-    font-size:18px;
-    letter-spacing:2px;
-}
+        .top-bar-info span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
 
-.logo-text span{
-    font-size:11px;
-    font-style:italic;
-    letter-spacing:1px;
-    color:#e6d3b2;
-}
+        .top-bar-info i {
+            font-size: 16px;
+        }
 
-/* NAVIGATION */
-.nav-menu{
-    display:flex;
-    gap:20px;
-    align-items:center;
-    flex-wrap:wrap;
-}
+        .top-bar-social {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
 
-.nav-menu a{
-    display:flex;
-    align-items:center;
-    gap:6px;
-    text-decoration:none;
-    color:white;
-    font-size:14px;
-    padding:8px 12px;
-    border-radius:20px;
-    transition:0.3s;
-}
+        .top-bar-social a {
+            color: var(--secondary);
+            text-decoration: none;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+        }
 
-.nav-menu a:hover{
-    background:#c8a97e;
-    color:#3e2a1c;
-    transform:translateY(-3px);
-}
+        .top-bar-social a:hover {
+            color: white;
+            transform: scale(1.1);
+        }
 
-/* ===== HERO ===== */
-.hero{
-    min-height:78vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:80px 30px 140px;
-    background:
-        radial-gradient(circle at top left,#e0c29a,transparent 55%),
-        radial-gradient(circle at bottom right,#b48a5a,transparent 55%),
-        linear-gradient(180deg,#fffaf3,#e6d3b2);
-    position:relative;
-}
+        /* ===== HEADER ===== */
+        header {
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(135deg, var(--dark), var(--black-coffee));
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
 
-.hero-content{
-    max-width:720px;
-}
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
 
-.hero h2{
-    font-size:48px;
-    letter-spacing:2px;
-    margin-bottom:22px;
-}
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            min-width: 200px;
+        }
 
-.hero h2 span{
-    color:#8b5e3c;
-}
+        .logo-area img {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: 2px solid var(--secondary);
+            object-fit: cover;
+        }
 
-.hero p{
-    font-size:17px;
-    line-height:1.9;
-    color:#5a3e2b;
-    margin-bottom:42px;
-}
+        .logo-text h2 {
+            font-size: 16px;
+            letter-spacing: 1px;
+            line-height: 1;
+        }
 
-.hero button{
-    padding:16px 42px;
-    border-radius:40px;
-    border:none;
-    background:linear-gradient(135deg,#8b5e3c,#5a3e2b);
-    color:white;
-    font-size:15px;
-    cursor:pointer;
-    box-shadow:0 18px 40px rgba(90,60,30,0.45);
-    transition:0.3s;
-}
+        .logo-text span {
+            font-size: 10px;
+            color: var(--secondary);
+            text-transform: uppercase;
+        }
 
-.hero button:hover{
-    transform:scale(1.08);
-}
+        .search-container {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 5px 15px;
+            border-radius: 30px;
+            border: 1px solid rgba(200, 169, 126, 0.3);
+            width: 350px;
+            transition: 0.3s;
+        }
 
-/* ===== QUICK MENU ===== */
-.quick-menu{
-    margin-top:-90px;
-    padding:0 60px 90px;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-    gap:36px;
-    position:relative;
-    z-index:5;
-}
+        .search-container:focus-within {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: var(--secondary);
+        }
 
-.quick-card{
-    background:linear-gradient(180deg,#fffdf9,#f0e0c7);
-    padding:42px 30px;
-    border-radius:30px;
-    text-align:center;
-    box-shadow:0 24px 45px rgba(90,60,30,0.35);
-    transition:0.35s;
-}
+        .search-container input {
+            background: none;
+            border: none;
+            color: white;
+            padding: 5px;
+            width: 100%;
+            outline: none;
+        }
 
-.quick-card:hover{
-    transform:translateY(-12px) scale(1.03);
-}
+        .search-container input::placeholder { color: #e6d3b2; font-size: 12px; }
 
-/* ===== MEDIA ===== */
-.media-section{
-    padding:80px 60px;
-    text-align:center;
-}
+        .search-container .material-icons {
+            font-size: 20px;
+            color: var(--secondary);
+            cursor: pointer;
+            margin-left: 8px;
+            transition: 0.2s;
+        }
 
-.media-section h3{
-    font-size:28px;
-    margin-bottom:40px;
-    letter-spacing:2px;
-}
+        .search-container .material-icons:hover { color: white; }
 
-.media-container{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:40px;
-}
+        /* NAVIGATION */
+        .nav-menu { display: flex; gap: 8px; }
+        .nav-menu a {
+            text-decoration: none;
+            color: #e6d3b2;
+            font-size: 13px;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+        .nav-menu a:hover { color: white; background: rgba(200, 169, 126, 0.2); }
 
-.media-card{
-    background:linear-gradient(180deg,#fffdf9,#f0e0c7);
-    padding:30px;
-    border-radius:25px;
-    box-shadow:0 20px 40px rgba(90,60,30,0.35);
-}
+        /* HERO SECTION */
+        .hero {
+            height: 75vh;
+            background: linear-gradient(rgba(58, 36, 22, 0.7), rgba(58, 36, 22, 0.7)), 
+                        url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=1400&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
 
-.media-card audio,
-.media-card video{
-    width:100%;
-    border-radius:15px;
-}
+        .hero-content h1 { font-size: 50px; margin-bottom: 20px; font-weight: 700; }
+        .hero-content span { color: var(--secondary); }
+        .hero-content p { font-size: 18px; margin-bottom: 30px; max-width: 800px; margin-left: auto; margin-right: auto; }
+        
+        .btn-main {
+            padding: 15px 40px;
+            background: linear-gradient(135deg, var(--secondary), #b48a5a);
+            border: none;
+            border-radius: 30px;
+            color: var(--dark);
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            transition: 0.3s;
+        }
+        .btn-main:hover { transform: scale(1.05); box-shadow: 0 15px 25px rgba(0,0,0,0.4); }
 
-/* ===== FOOTER ===== */
-footer{
-    background:#3a2416;
-    color:#f5efe6;
-    padding:40px 20px;
-    font-size:14px;
-}
+        /* SECTIONS & GRIDS */
+        .section-container { padding: 80px 8%; }
+        .section-title { text-align: center; margin-bottom: 50px; }
+        .section-title h2 { color: var(--dark); font-size: 32px; text-transform: uppercase; letter-spacing: 2px; }
+        .section-title div { width: 80px; height: 4px; background: var(--secondary); margin: 15px auto; border-radius: 2px; }
 
-.footer-container{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:40px;
-    text-align:left;
-}
+        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 35px; }
 
-.footer-container h4{
-    margin-bottom:15px;
-    letter-spacing:1px;
-}
+        .card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+            transition: 0.4s;
+            border: 1px solid rgba(200, 169, 126, 0.1);
+        }
+        .card:hover { transform: translateY(-15px); box-shadow: 0 20px 45px rgba(90,60,30,0.2); }
+        .card img { width: 100%; height: 200px; object-fit: cover; }
+        .card-body { padding: 25px; }
+        .card-body h4 { color: var(--primary); margin-bottom: 12px; font-size: 18px; }
+        .card-body p { font-size: 14px; color: #666; margin-bottom: 15px; }
+        
+        .stats-bar {
+            background: linear-gradient(135deg, var(--dark), var(--black-coffee));
+            color: white;
+            padding: 60px 5%;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        .stat-item { text-align: center; }
+        .stat-item h3 { font-size: 45px; color: var(--secondary); font-weight: 700; }
+        .stat-item p { text-transform: uppercase; font-size: 12px; letter-spacing: 2px; opacity: 0.8; }
 
-.footer-container a{
-    display:block;
-    margin-bottom:8px;
-    color:#f5efe6;
-    text-decoration:none;
-    transition:0.3s;
-}
+        .quote-box {
+            background: var(--light);
+            padding: 60px;
+            text-align: center;
+            border-radius: 30px;
+            margin: 40px 0;
+            border: 2px dashed var(--secondary);
+        }
+        .quote-box i { font-size: 40px; color: var(--secondary); display: block; margin-bottom: 20px; }
+        .quote-box p { font-style: italic; font-size: 20px; color: var(--primary); }
 
-.footer-container a:hover{
-    color:#c8a97e;
-    padding-left:6px;
-}
+        /* FOOTER */
+        footer {
+            background: var(--black-coffee);
+            color: #d1bfa7;
+            padding: 80px 8% 30px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+        .footer-col h4 { color: white; margin-bottom: 25px; font-size: 18px; position: relative; }
+        .footer-col h4::after { content:''; position:absolute; left:0; bottom:-8px; width:30px; height:2px; background:var(--secondary); }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 12px; }
+        .footer-col a { color: #d1bfa7; text-decoration: none; font-size: 14px; transition: 0.3s; }
+        .footer-col a:hover { color: var(--secondary); padding-left: 5px; }
+        
+        .copyright { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 13px; color: #555; }
 
-/* ===== FEEDBACK FLOAT ===== */
-.feedback-btn{
-    position:fixed;
-    bottom:30px;
-    right:30px;
-    background:linear-gradient(135deg,#8b5e3c,#5a3e2b);
-    color:white;
-    padding:14px 20px;
-    border-radius:40px;
-    text-decoration:none;
-    box-shadow:0 15px 35px rgba(0,0,0,0.4);
-    transition:0.3s;
-    font-size:14px;
-    z-index:999;
-}
+        .feedback-btn {
+            position: fixed; bottom: 30px; right: 30px;
+            background: var(--secondary); color: var(--dark);
+            padding: 12px 25px; border-radius: 30px; text-decoration: none;
+            font-weight: bold; box-shadow: 0 10px 20px rgba(0,0,0,0.3); z-index: 999;
+        }
 
-.feedback-btn:hover{
-    transform:scale(1.1) rotate(-3deg);
-    background:#c8a97e;
-    color:#3e2a1c;
-}
-</style>
+        .media-card video { width: 100%; border-radius: 12px; margin-bottom: 10px; }
+    </style>
 </head>
-
 <body>
 
-<header>
+<div class="top-bar">
+    <div class="top-bar-info">
+        <span>
+            <i class="material-icons">calendar_today</i> 
+            <span id="current-date">Memuat tanggal...</span>
+        </span>
+        <span>
+            <i class="material-icons">access_time</i> 
+            <span id="current-time">00:00:00</span>
+        </span>
+        <span>
+            <i class="material-icons">location_on</i> 
+            Medan, Indonesia
+        </span>
+    </div>
+    
+    <div class="top-bar-social">
+        <a href="#" title="Facebook"><i class="material-icons">facebook</i></a>
+        <a href="#" title="Instagram"><img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" width="14" style="filter: sepia(1) saturate(5) hue-rotate(10deg); margin-right: 2px;"></a>
+        <a href="#" title="YouTube"><i class="material-icons">play_circle_filled</i></a>
+    </div>
+</div>
 
-    <div class="logo-area">
-        <img src="logo.png.png" alt="Logo Perpustakaan">
-        
-        <div class="logo-text">
-            <h2>EDUTRAIL LIBRARY</h2>
-            <span>pathway to knowledge</span>
+<header>
+    <div class="header-left">
+        <div class="logo-area">
+            <img src="logo.png" alt="Logo">
+            <div class="logo-text">
+                <h2>EDUTRAIL LIBRARY</h2>
+                <span>Pathway to Knowledge</span>
+            </div>
+        </div>
+
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Cari judul buku atau penulis...">
+            <span class="material-icons" id="mic-btn" title="Cari dengan suara">mic</span>
+            <span class="material-icons">search</span>
         </div>
     </div>
 
     <nav class="nav-menu">
-    <a href="#">Beranda</a>
-    <a href="Profil.html" target="_blank">Profil</a>
-    <a href="Layanan.html" target="_blank">Layanan</a>
-    <a href="#koleksi-buku">Koleksi</a>
-    <a href="#media-koleksi">Media</a>
-    <a href="Tentang.html" target="_blank">Tentang</a>
-    <a href="login" target="_blank">Login</a>
-    <a href="daftar.html" target="_blank">Daftar</a>
-</nav>
-
+        <a href="#">Beranda</a>
+        <a href="Profil.html">Profil</a>
+        <a href="Layanan.html">Layanan</a>
+        <a href="#koleksi">Koleksi</a>
+        <a href="#events">Events</a>
+        <a href="login.html">Login</a>
+    </nav>
 </header>
 
 <section class="hero">
     <div class="hero-content">
-        <h2>SELAMAT DATANG DI<span>
-		WEBSITE PERPUSTAKAAN EDUTRAIL</span></h2>
-        <p>
-            Ruang literasi digital yang dirancang untuk menghadirkan pengalaman
-            membaca yang nyaman, modern, dan menyenangkan dalam satu tempat.
-        </p>
-        <button>JELAJAHI KOLEKSI</button>
+        <h1>Eksplorasi <span>Dunia Literasi</span> Tanpa Batas</h1>
+        <p>Selamat datang di Edutrail Library. Ruang literasi digital modern yang menghadirkan ribuan koleksi buku, media pembelajaran, dan informasi beasiswa global dalam satu genggaman.</p>
+        <button class="btn-main" onclick="location.href='#koleksi'">JELAJAHI KOLEKSI</button>
     </div>
 </section>
 
-<section class="quick-menu" id="koleksi-buku">
-    <div class="quick-card">
-        <h4>Koleksi Buku</h4>
-        <p>Kumpulan bacaan pilihan untuk memperluas wawasan dan pengetahuan.</p>
-    </div>
+<div class="stats-bar">
+    <div class="stat-item"><h3>15K+</h3><p>Total Koleksi</p></div>
+    <div class="stat-item"><h3>8K+</h3><p>Anggota Aktif</p></div>
+    <div class="stat-item"><h3>250+</h3><p>Peminjaman Baru/Hari</p></div>
+    <div class="stat-item"><h3>45+</h3><p>Mitra Institusi</p></div>
+</div>
 
-    <div class="quick-card">
-        <h4>Pencarian Mudah</h4>
-        <p>Temukan buku dengan cepat melalui sistem pencarian yang sederhana.</p>
+<section class="section-container" id="layanan">
+    <div class="section-title">
+        <h2>Layanan Unggulan Kami</h2>
+        <div></div>
     </div>
-
-    <div class="quick-card">
-        <h4>Layanan Perpustakaan</h4>
-        <p>Informasi layanan tersaji rapi dan mudah diakses.</p>
+    <div class="grid-4">
+        <div class="card card-body" style="text-align: center;">
+            <span class="material-icons" style="font-size: 45px; color: var(--secondary);">auto_stories</span>
+            <h4>E-Library</h4>
+            <p>Akses ribuan e-book dan jurnal digital kapan saja dan di mana saja.</p>
+        </div>
+        <div class="card card-body" style="text-align: center;">
+            <span class="material-icons" style="font-size: 45px; color: var(--secondary);">workspace_premium</span>
+            <h4>Info Beasiswa</h4>
+            <p>Update harian informasi beasiswa dalam dan luar negeri terlengkap.</p>
+        </div>
+        <div class="card card-body" style="text-align: center;">
+            <span class="material-icons" style="font-size: 45px; color: var(--secondary);">group</span>
+            <h4>Ruang Diskusi</h4>
+            <p>Fasilitas ruang kolaborasi modern untuk kerja kelompok dan diskusi.</p>
+        </div>
+        <div class="card card-body" style="text-align: center;">
+            <span class="material-icons" style="font-size: 45px; color: var(--secondary);">print</span>
+            <h4>Digital Printing</h4>
+            <p>Layanan cetak dokumen dan tugas akhir dengan proses yang cepat.</p>
+        </div>
     </div>
 </section>
 
-<section class="media-section" id="media-koleksi">
-    <h3>AUDIO DAN VIDEO</h3>
-    <div class="media-container">
-        <div class="media-card">
-            <audio controls>
-                <source src="lushlife.mp3" type="audio/mp3">
-            </audio>
+<section class="section-container" style="background-color: #f3e9dc;">
+    <div class="section-title">
+        <h2>Program Beasiswa Internasional</h2>
+        <div></div>
+    </div>
+    <div class="grid-3">
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1523050335392-93851179ae22?auto=format&fit=crop&w=500&q=80" alt="Beasiswa">
+            <div class="card-body">
+                <h4>LPDP Tahap II 2026</h4>
+                <p>Pendaftaran beasiswa magister dan doktor untuk universitas terbaik dunia telah dibuka.</p>
+                <button style="border:1px solid var(--secondary); background:none; padding:5px 15px; border-radius:15px; cursor:pointer;">Cek Syarat</button>
+            </div>
         </div>
-        <div class="media-card">
-            <video controls>
-                <source src="video homepage.mp4" type="video/mp4">
-            </video>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1541339907198-e08759df9a13?auto=format&fit=crop&w=500&q=80" alt="Beasiswa">
+            <div class="card-body">
+                <h4>Monbukagakusho (MEXT)</h4>
+                <p>Kesempatan kuliah di Jepang dengan tunjangan hidup penuh untuk semua jenjang pendidikan.</p>
+                <button style="border:1px solid var(--secondary); background:none; padding:5px 15px; border-radius:15px; cursor:pointer;">Cek Syarat</button>
+            </div>
         </div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1491843351663-7c116e814830?auto=format&fit=crop&w=500&q=80" alt="Beasiswa">
+            <div class="card-body">
+                <h4>Erasmus Mundus</h4>
+                <p>Jelajahi Eropa melalui program studi gabungan di berbagai universitas ternama Uni Eropa.</p>
+                <button style="border:1px solid var(--secondary); background:none; padding:5px 15px; border-radius:15px; cursor:pointer;">Cek Syarat</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-container" id="koleksi">
+    <div class="section-title">
+        <h2>Video Pembelajaran & Koleksi Media</h2>
+        <div></div>
+    </div>
+    <div class="grid-3">
+        <div class="card">
+            <div class="card-body media-card">
+                <video controls>
+                    <source src="video homepage.mp4" type="video/mp4">
+                </video>
+                <h4>Teknik Membaca Cepat</h4>
+                <p>Pelajari cara memahami isi buku hanya dalam waktu 15 menit melalui video tutorial ini.</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body media-card">
+                <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=500&q=80" alt="Podcast" style="height:150px; border-radius:10px; margin-bottom:15px;">
+                <audio controls style="width: 100%;">
+                    <source src="lushlife.mp3" type="audio/mp3">
+                </audio>
+                <h4 style="margin-top:15px;">Podcast: Pentingnya Literasi</h4>
+                <p>Dengarkan obrolan santai bersama duta baca mengenai perkembangan dunia literasi digital.</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body media-card">
+                <img src="https://images.unsplash.com/photo-1532012197367-2d59784f947f?auto=format&fit=crop&w=500&q=80" alt="Buku" style="height:150px; border-radius:10px; margin-bottom:15px;">
+                <h4>Digital Repository</h4>
+                <p>Akses koleksi skripsi, tesis, dan disertasi dalam bentuk digital secara gratis untuk referensi.</p>
+                <a href="#" style="color:var(--secondary); text-decoration:none; font-weight:600;">Buka Folder →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-container" id="events" style="background-color: white;">
+    <div class="section-title">
+        <h2>Agenda & Program Mendatang</h2>
+        <div></div>
+    </div>
+    <div class="grid-3">
+        <div class="card card-body">
+            <div style="background:var(--light); padding:10px; border-radius:10px; text-align:center; width:60px; margin-bottom:15px;">
+                <span style="display:block; font-weight:bold; color:var(--primary);">12</span>
+                <span style="font-size:10px;">APR</span>
+            </div>
+            <h4>Bedah Buku Nasional</h4>
+            <p>Menghadirkan penulis best-seller untuk mengupas tuntas karya terbarunya di Aula Utama.</p>
+        </div>
+        <div class="card card-body">
+            <div style="background:var(--light); padding:10px; border-radius:10px; text-align:center; width:60px; margin-bottom:15px;">
+                <span style="display:block; font-weight:bold; color:var(--primary);">15</span>
+                <span style="font-size:10px;">APR</span>
+            </div>
+            <h4>Pelatihan EndNote</h4>
+            <p>Workshop penggunaan aplikasi manajemen referensi untuk mempermudah penulisan karya ilmiah.</p>
+        </div>
+        <div class="card card-body">
+            <div style="background:var(--light); padding:10px; border-radius:10px; text-align:center; width:60px; margin-bottom:15px;">
+                <span style="display:block; font-weight:bold; color:var(--primary);">20</span>
+                <span style="font-size:10px;">APR</span>
+            </div>
+            <h4>Edutrail Movie Night</h4>
+            <p>Nonton bareng film dokumenter pendidikan dilanjutkan dengan sesi diskusi inspiratif.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section-container">
+    <div class="quote-box">
+        <span class="material-icons">format_quote</span>
+        <p>"Buku adalah jendela dunia, dan perpustakaan adalah pintunya. Di Edutrail, kami memastikan pintu tersebut selalu terbuka untuk siapa saja yang haus akan ilmu."</p>
+        <h5 style="margin-top:15px; color:var(--secondary);">- Tim Edutrail Library</h5>
     </div>
 </section>
 
 <footer>
-    <div class="footer-container">
-        <div>
-            <h4>Tentang</h4>
-            <a href="https://youtube.com/@tiurftsrifehtkram?si=CPgn-3yzQ6V3xXL9F" target="_blank">
-                YouTube Channel
-            </a>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>EDUTRAIL LIBRARY</h4>
+            <p style="font-size: 13px; line-height: 1.8;">Pusat informasi dan literasi modern yang berkomitmen mendukung pendidikan global melalui penyediaan koleksi berkualitas dan layanan digital terdepan.</p>
         </div>
-
-        <div>
-            <h4>Kontak</h4>
-            <p>Alamat: Medan, Sumatera Utara</p>
-            <a href="https://instagram.com/" target="_blank">Instagram</a>
-            <a href="alwafi.putihani@gmail.com">Email</a>
-            <p>No Telepon: (+62)813-7188-6934</p>
+        <div class="footer-col">
+            <h4>Navigasi Cepat</h4>
+            <ul>
+                <li><a href="#">Beranda Utama</a></li>
+                <li><a href="Profil.html">Profil Perpustakaan</a></li>
+                <li><a href="Layanan.html">Layanan & Fasilitas</a></li>
+                <li><a href="#koleksi">Koleksi Digital</a></li>
+                <li><a href="#events">Agenda & Events</a></li>
+                <li><a href="login.html">Akses Akun (Login)</a></li>
+            </ul>
         </div>
-
-        <div>
-            <h4>Jam Operasional Layanan</h4>
-            <p>Senin-Jumat : 08:00-19:00 WIB</p>
-            <p>Sabtu : 09:00-17:00 WIB</p>
-            <p>Minggu & Libur Nasional : Tutup</p>
+        <div class="footer-col">
+            <h4>Kontak Kami</h4>
+            <ul>
+                <li><a href="#">Email: alwafi.putihani@gmail.com</a></li>
+                <li><a href="#">WhatsApp: (+62) 813-7188-6934</a></li>
+                <li><a href="#">Alamat: Medan, Sumatera Utara</a></li>
+                <li><a href="#">Jam Layanan: 08:00 - 19:00 WIB</a></li>
+            </ul>
         </div>
+        <div class="footer-col">
+            <h4>Ikuti Kami</h4>
+            <ul>
+                <li><a href="#">Instagram @edutrail_lib</a></li>
+                <li><a href="#">YouTube Edutrail Knowledge</a></li>
+                <li><a href="#">Facebook Edutrail Library</a></li>
+                <li><a href="#">Twitter/X @edutrail</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="copyright">
+        &copy; 2026 Edutrail Library. Dikembangkan dengan dedikasi untuk literasi Indonesia.
     </div>
 </footer>
 
-<a href="feedback.html" class="feedback-btn">Feedback</a>
+<a href="feedback.html" class="feedback-btn">Kirim Feedback</a>
+
+<script>
+    // --- JAVASCRIPT UNTUK JAM & TANGGAL REALTIME ---
+    function updateDateTime() {
+        const sekarang = new Date();
+
+        const jam = String(sekarang.getHours()).padStart(2, '0');
+        const menit = String(sekarang.getMinutes()).padStart(2, '0');
+        const detik = String(sekarang.getSeconds()).padStart(2, '0');
+        const timeElement = document.getElementById('current-time');
+        if(timeElement) timeElement.innerText = `${jam}:${menit}:${detik}`;
+
+        const opsiTanggal = { 
+            weekday: 'long', 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric' 
+        };
+        const tanggalString = sekarang.toLocaleDateString('id-ID', opsiTanggal);
+        const dateElement = document.getElementById('current-date');
+        if(dateElement) dateElement.innerText = tanggalString;
+    }
+    setInterval(updateDateTime, 1000);
+    updateDateTime();
+
+    // --- JAVASCRIPT UNTUK SPEECH RECOGNITION (MIC) ---
+    const micBtn = document.getElementById('mic-btn');
+    const searchInput = document.getElementById('search-input');
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+    if (SpeechRecognition) {
+        const recognition = new SpeechRecognition();
+        recognition.lang = 'id-ID'; 
+        recognition.interimResults = false;
+
+        micBtn.addEventListener('click', () => {
+            recognition.start();
+            micBtn.style.color = "#ff4d4d"; 
+            searchInput.placeholder = "Mendengarkan suara Anda...";
+        });
+
+        recognition.onresult = (event) => {
+            const transcript = event.results[0][0].transcript;
+            searchInput.value = transcript;
+            micBtn.style.color = "#c8a97e"; 
+            alert("Mencari: " + transcript); 
+        };
+
+        recognition.onspeechend = () => {
+            recognition.stop();
+            micBtn.style.color = "#c8a97e";
+            searchInput.placeholder = "Cari judul buku atau penulis...";
+        };
+
+        recognition.onerror = () => {
+            micBtn.style.color = "#c8a97e";
+            alert("Maaf, mikrofon tidak terdeteksi atau izin ditolak.");
+        };
+    } else {
+        if(micBtn) micBtn.style.display = "none";
+        console.log("Browser tidak mendukung Speech Recognition.");
+    }
+</script>
 
 </body>
 </html>
