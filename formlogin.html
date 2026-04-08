@@ -14,6 +14,7 @@
             --secondary: #c8a97e;
             --dark: #3a2416;
             --light: #f7efe6;
+            --accent: #8b5e3c;
             --black-coffee: #1a100a;
         }
 
@@ -25,50 +26,61 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, var(--light) 0%, #e6d5c3 100%);
-            height: 100vh;
+            background-color: #fffaf3;
+            color: #3e2a1c;
+            line-height: 1.6;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
         }
 
-        /* ===== HEADER ===== */
+        /* ===== CSS HEADER (IDENTIK HOMEPAGE) ===== */
         header {
             padding: 15px 5%;
             display: flex;
+            justify-content: space-between;
             align-items: center;
             background: linear-gradient(135deg, var(--dark), var(--black-coffee));
             color: white;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
-        .back-btn {
-            color: var(--secondary);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 14px;
-            transition: 0.3s;
+        .header-left { display: flex; align-items: center; gap: 25px; }
+        .logo-area { display: flex; align-items: center; gap: 12px; min-width: 200px; }
+        .logo-area img { width: 45px; height: 45px; border-radius: 50%; border: 2px solid var(--secondary); object-fit: cover; }
+        .logo-text h2 { font-size: 16px; letter-spacing: 1px; line-height: 1; }
+        .logo-text span { font-size: 10px; color: var(--secondary); text-transform: uppercase; }
+
+        .search-container {
+            display: flex; align-items: center; background: rgba(255, 255, 255, 0.1);
+            padding: 5px 15px; border-radius: 30px; border: 1px solid rgba(200, 169, 126, 0.3);
+            width: 350px; transition: 0.3s;
         }
 
-        .back-btn:hover { color: white; }
+        .search-container input { background: none; border: none; color: white; padding: 5px; width: 100%; outline: none; }
+        .search-container .material-icons { font-size: 20px; color: var(--secondary); cursor: pointer; }
 
-        header h1 {
-            flex-grow: 1;
-            text-align: center;
-            font-size: 16px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-right: 80px; /* Offset for back button balance */
+        .nav-menu { display: flex; gap: 8px; }
+        .nav-menu a {
+            text-decoration: none; color: #e6d3b2; font-size: 13px;
+            padding: 8px 12px; border-radius: 8px; transition: 0.3s;
         }
+        .nav-menu a:hover { color: white; background: rgba(200, 169, 126, 0.2); }
 
-        /* ===== LOGIN CONTAINER ===== */
-        .login-container {
+        /* ===== KONTEN LOGIN (TENGAH) ===== */
+        .login-section {
             flex-grow: 1;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 20px;
+            padding: 60px 20px;
+            background: linear-gradient(rgba(247, 239, 230, 0.8), rgba(247, 239, 230, 0.8)), 
+                        url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=1400&q=80');
+            background-size: cover;
+            background-position: center;
         }
 
         .login-box {
@@ -81,129 +93,82 @@
             border: 1px solid rgba(200, 169, 126, 0.2);
         }
 
-        .login-header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
+        .login-header { text-align: center; margin-bottom: 30px; }
+        .login-header h2 { color: var(--dark); font-size: 24px; font-weight: 700; }
+        .login-header p { font-size: 13px; color: #888; }
 
-        .login-header img {
-            width: 60px;
-            margin-bottom: 15px;
-            border-radius: 50%;
-            border: 2px solid var(--secondary);
-        }
-
-        .login-header h2 {
-            color: var(--dark);
-            font-size: 24px;
-            font-weight: 700;
-        }
-
-        .login-header p {
-            font-size: 13px;
-            color: #888;
-        }
-
-        /* Form Styling */
-        .form-group {
-            margin-bottom: 20px;
-        }
-
+        .form-group { margin-bottom: 20px; }
         .form-group label {
-            display: block;
-            font-size: 12px;
-            font-weight: 600;
-            color: var(--primary);
-            margin-bottom: 8px;
-            text-transform: uppercase;
+            display: block; font-size: 12px; font-weight: 600; 
+            color: var(--primary); margin-bottom: 8px; text-transform: uppercase;
         }
 
-        .input-wrapper {
-            position: relative;
-            display: flex;
-            align-items: center;
+        .input-wrapper { position: relative; display: flex; align-items: center; }
+        .input-wrapper i { position: absolute; left: 12px; color: var(--secondary); font-size: 20px; }
+
+        .input-wrapper input {
+            width: 100%; padding: 12px 15px 12px 42px; border-radius: 12px;
+            border: 1.5px solid #eee; font-family: inherit; outline: none; transition: 0.3s;
         }
+        .input-wrapper input:focus { border-color: var(--secondary); box-shadow: 0 0 0 4px rgba(200, 169, 126, 0.1); }
 
-        .input-wrapper i {
-            position: absolute;
-            left: 12px;
-            color: var(--secondary);
-            font-size: 20px;
+        .toggle-pass { position: absolute; right: 12px; cursor: pointer; color: #999; transition: 0.3s; }
+
+        .btn-login {
+            width: 100%; padding: 14px; background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white; border: none; border-radius: 12px; font-weight: 600;
+            cursor: pointer; transition: 0.3s; margin-top: 10px; box-shadow: 0 8px 15px rgba(107, 69, 39, 0.2);
         }
+        .btn-login:hover { transform: translateY(-2px); box-shadow: 0 12px 20px rgba(107, 69, 39, 0.3); }
 
-        input {
-            width: 100%;
-            padding: 12px 15px 12px 42px;
-            border-radius: 12px;
-            border: 1.5px solid #eee;
-            font-family: inherit;
-            outline: none;
-            transition: 0.3s;
+        .footer-link { text-align: center; margin-top: 25px; font-size: 14px; color: #666; }
+        .footer-link a { color: var(--primary); text-decoration: none; font-weight: 600; }
+
+        /* ===== CSS FOOTER (IDENTIK HOMEPAGE) ===== */
+        footer {
+            background: var(--black-coffee); color: #d1bfa7; padding: 80px 8% 30px;
         }
-
-        input:focus {
-            border-color: var(--secondary);
-            box-shadow: 0 0 0 4px rgba(200, 169, 126, 0.1);
+        .footer-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 50px; margin-bottom: 50px;
         }
-
-        .toggle-pass {
-            position: absolute;
-            right: 12px;
-            cursor: pointer;
-            color: #999;
-            transition: 0.3s;
-        }
-
-        .toggle-pass:hover { color: var(--primary); }
-
-        button {
-            width: 100%;
-            padding: 14px;
-            background: linear-gradient(135deg, var(--primary), var(--dark));
-            color: white;
-            border: none;
-            border-radius: 12px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.3s;
-            margin-top: 10px;
-            box-shadow: 0 8px 15px rgba(107, 69, 39, 0.2);
-        }
-
-        button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 20px rgba(107, 69, 39, 0.3);
-        }
-
-        .footer-link {
-            text-align: center;
-            margin-top: 25px;
-            font-size: 14px;
-            color: #666;
-        }
-
-        .footer-link a {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .footer-link a:hover { text-decoration: underline; }
+        .footer-col h4 { color: white; margin-bottom: 25px; font-size: 18px; position: relative; }
+        .footer-col h4::after { content:''; position:absolute; left:0; bottom:-8px; width:30px; height:2px; background:var(--secondary); }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 12px; }
+        .footer-col a { color: #d1bfa7; text-decoration: none; font-size: 14px; transition: 0.3s; }
+        .footer-col a:hover { color: var(--secondary); padding-left: 5px; }
+        .copyright { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 13px; color: #555; }
     </style>
 </head>
 <body>
 
 <header>
-    <a href="index.html" class="back-btn">
-        <span class="material-icons">arrow_back</span> Kembali
-    </a>
-    <h1>Edutrail Library</h1>
+    <div class="header-left">
+        <div class="logo-area">
+            <img src="logo.png" alt="Logo">
+            <div class="logo-text">
+                <h2>EDUTRAIL LIBRARY</h2>
+                <span>Pathway to Knowledge</span>
+            </div>
+        </div>
+        <div class="search-container">
+            <input type="text" placeholder="Cari buku atau informasi...">
+            <span class="material-icons">search</span>
+        </div>
+    </div>
+    <nav class="nav-menu">
+        <a href="index.html">Beranda</a>
+        <a href="Profil.html">Profil</a>
+        <a href="Layanan.html">Layanan</a>
+        <a href="index.html#koleksi">Koleksi</a>
+        <a href="event.html">Events</a>
+        <a href="login.html">Login</a>
+    </nav>
 </header>
 
-<div class="login-container">
+<div class="login-section">
     <div class="login-box">
         <div class="login-header">
-            <img src="logo.png" alt="Logo">
             <h2>Selamat Datang</h2>
             <p>Silakan masuk ke akun literasi Anda</p>
         </div>
@@ -226,7 +191,7 @@
                 </div>
             </div>
 
-            <button type="submit">MASUK KE PERPUSTAKAAN</button>
+            <button type="submit" class="btn-login">MASUK KE PERPUSTAKAAN</button>
         </form>
 
         <div class="footer-link">
@@ -235,6 +200,47 @@
         </div>
     </div>
 </div>
+
+<footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>EDUTRAIL LIBRARY</h4>
+            <p style="font-size: 13px; line-height: 1.8;">Pusat informasi dan literasi modern yang berkomitmen mendukung pendidikan global melalui penyediaan koleksi berkualitas dan layanan digital terdepan.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Navigasi Cepat</h4>
+            <ul>
+                <li><a href="index.html">Beranda Utama</a></li>
+                <li><a href="Profil.html">Profil Perpustakaan</a></li>
+                <li><a href="Layanan.html">Layanan & Fasilitas</a></li>
+                <li><a href="index.html#koleksi">Koleksi Digital</a></li>
+                <li><a href="event.html">Agenda & Events</a></li>
+                <li><a href="login.html">Akses Akun (Login)</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Kontak Kami</h4>
+            <ul>
+                <li><a href="#">Email: alwafi.putihani@gmail.com</a></li>
+                <li><a href="#">WhatsApp: (+62) 813-7188-6934</a></li>
+                <li><a href="#">Alamat: Medan, Sumatera Utara</a></li>
+                <li><a href="#">Jam Layanan: 08:00 - 19:00 WIB</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Ikuti Kami</h4>
+            <ul>
+                <li><a href="#">Instagram @edutrail_lib</a></li>
+                <li><a href="#">YouTube Edutrail Knowledge</a></li>
+                <li><a href="#">Facebook Edutrail Library</a></li>
+                <li><a href="#">Twitter/X @edutrail</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="copyright">
+        &copy; 2026 Edutrail Library. Dikembangkan dengan dedikasi untuk literasi Indonesia.
+    </div>
+</footer>
 
 <script>
     function togglePassword() {
