@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas Kuliah - EDUTRAIL LIBRARY</title>
+    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #6b4527;
+            --secondary: #c8a97e;
+            --dark: #3a2416;
+            --light: #f7efe6;
+            --accent: #8b5e3c;
+            --black-coffee: #1a100a;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background-color: #fffaf3; color: #3e2a1c; line-height: 1.6; }
+
+        /* ===== TOP BAR (Sama dengan Homepage) ===== */
+        .top-bar {
+            background: var(--black-coffee);
+            color: var(--secondary);
+            padding: 8px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+        }
+        .top-bar-info { display: flex; gap: 25px; align-items: center; }
+        .top-bar-info span { display: flex; align-items: center; gap: 6px; }
+        .top-bar-social { display: flex; gap: 15px; }
+        .top-bar-social a { color: var(--secondary); text-decoration: none; }
+
+        /* ===== HEADER & DROPDOWN ===== */
+        header {
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(135deg, var(--dark), var(--black-coffee));
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo-area { display: flex; align-items: center; gap: 12px; }
+        .logo-area img { width: 45px; height: 45px; border-radius: 50%; border: 2px solid var(--secondary); }
+        .logo-text h2 { font-size: 16px; letter-spacing: 1px; line-height: 1; }
+        .logo-text span { font-size: 10px; color: var(--secondary); text-transform: uppercase; }
+
+        .nav-menu { display: flex; gap: 8px; align-items: center; }
+        .nav-menu a {
+            text-decoration: none;
+            color: #e6d3b2;
+            font-size: 13px;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+        .nav-menu a:hover { color: white; background: rgba(200, 169, 126, 0.2); }
+
+        /* Style Dropdown */
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--dark);
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+            border-radius: 8px;
+            z-index: 1;
+        }
+        .dropdown:hover .dropdown-content { display: block; }
+        .dropdown-content a { color: #e6d3b2; padding: 12px 16px; display: block; border-bottom: 1px solid rgba(255,255,255,0.1); }
+
+        /* ===== MAIN CONTENT ===== */
+        .tugas-section { padding: 60px 8%; text-align: center; }
+        .tugas-header { margin-bottom: 40px; }
+        .tugas-header h1 { color: var(--dark); font-size: 28px; margin-bottom: 10px; }
+        .tugas-header h3 { color: var(--accent); font-weight: 400; margin-bottom: 5px; }
+        .tugas-header .nama { font-weight: 600; color: var(--primary); }
+
+        /* Grid Box Tugas */
+        .grid-tugas { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 25px; 
+            max-width: 1100px; 
+            margin: 0 auto; 
+        }
+        .card-tugas {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid rgba(200, 169, 126, 0.2);
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .card-tugas:hover { transform: translateY(-10px); background: var(--light); }
+        .card-tugas i { font-size: 40px; color: var(--secondary); margin-bottom: 15px; }
+        .card-tugas h4 { color: var(--dark); margin-bottom: 10px; }
+
+        /* View Area (Iframe) */
+        #view-area { display: none; margin-top: 30px; }
+        iframe { width: 100%; height: 600px; border: 2px solid var(--secondary); border-radius: 15px; background: white; }
+        .btn-back {
+            background: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            font-family: 'Poppins';
+        }
+
+        /* ===== FOOTER (Sama dengan Homepage) ===== */
+        footer { background: var(--black-coffee); color: #d1bfa7; padding: 60px 8% 30px; margin-top: 50px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; }
+        .footer-col h4 { color: white; margin-bottom: 20px; position: relative; }
+        .footer-col h4::after { content:''; position:absolute; left:0; bottom:-5px; width:30px; height:2px; background:var(--secondary); }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 10px; font-size: 14px; }
+        .dosen-info { margin-top: 30px; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; font-style: italic; }
+    </style>
+</head>
+<body>
+
+<div class="top-bar">
+    <div class="top-bar-info">
+        <span><i class="material-icons">calendar_today</i> <span id="current-date"></span></span>
+        <span><i class="material-icons">location_on</i> Medan, Indonesia</span>
+    </div>
+    <div class="top-bar-social">
+        <i class="material-icons">facebook</i>
+        <i class="material-icons">play_circle_filled</i>
+    </div>
+</div>
+
+<header>
+    <div class="logo-area">
+        <img src="logo.png.png" alt="Logo">
+        <div class="logo-text">
+            <h2>EDUTRAIL LIBRARY</h2>
+            <span>Pathway to Knowledge</span>
+        </div>
+    </div>
+    <nav class="nav-menu">
+        <a href="index.html">Beranda</a>
+        <div class="dropdown">
+            <a href="#">Tentang <i class="material-icons" style="font-size: 12px;">expand_more</i></a>
+            <div class="dropdown-content">
+                <a href="tugas-kuliah.html">Tugas Kuliah</a>
+            </div>
+        </div>
+        <a href="Profil.html">Profil</a>
+        <a href="Layanan.html">Layanan</a>
+        <a href="formlogin.html">Login</a>
+    </nav>
+</header>
+
+<section class="tugas-section">
+    <div class="tugas-header" id="tugas-header-text">
+        <h1>Tugas Pemrograman Website Perpustakaan</h1>
+        <h3>Mahasiswa Perpustakaan dan Sains Informasi</h3>
+        <p class="nama">Puti Hani Alwafi (230709021/ A)</p>
+    </div>
+
+    <div class="grid-tugas" id="main-grid">
+        <div class="card-tugas" onclick="tampilTugas('tugas1.html')">
+            <i class="material-icons">history</i>
+            <h4>Tugas 1</h4>
+            <p>Looping 1000 Hari</p>
+        </div>
+        <div class="card-tugas" onclick="tampilTugas('tugas2.html')">
+            <i class="material-icons">calculate</i>
+            <h4>Tugas 2</h4>
+            <p>Kalkulator Sederhana</p>
+        </div>
+        <div class="card-tugas" onclick="tampilTugas('tugas2.html')">
+            <i class="material-icons">login</i>
+            <h4>Tugas 3</h4>
+            <p>Logika Login</p>
+        </div>
+        <div class="card-tugas" onclick="tampilTugas('tugas2.html')">
+            <i class="material-icons">storage</i>
+            <h4>Tugas 4</h4>
+            <p>Manajemen Database</p>
+        </div>
+    </div>
+
+    <div id="view-area">
+        <button class="btn-back" onclick="tutupTugas()">← Kembali ke Daftar Tugas</button>
+        <iframe id="frame-tugas"></iframe>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>EDUTRAIL LIBRARY</h4>
+            <p style="font-size: 13px;">Pusat informasi dan literasi modern yang mendukung pendidikan global.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Kontak Kami</h4>
+            <ul>
+                <li>Email: alwafi.putihani@gmail.com</li>
+                <li>Alamat: Medan, Sumatera Utara</li>
+            </ul>
+        </div>
+    </div>
+    <div class="dosen-info">
+        Dosen Pengampu: Himma Dewiyana ST., M.Hum.
+    </div>
+    <div style="text-align:center; font-size:12px; margin-top:20px; opacity:0.5;">
+        &copy; 2026 Edutrail Library.
+    </div>
+</footer>
+
+<script>
+    function tampilTugas(url) {
+        document.getElementById('main-grid').style.display = 'none';
+        document.getElementById('tugas-header-text').style.display = 'none';
+        document.getElementById('view-area').style.display = 'block';
+        document.getElementById('frame-tugas').src = url;
+    }
+
+    function tutupTugas() {
+        document.getElementById('main-grid').style.display = 'grid';
+        document.getElementById('tugas-header-text').style.display = 'block';
+        document.getElementById('view-area').style.display = 'none';
+        document.getElementById('frame-tugas').src = '';
+    }
+
+    // Tanggal Realtime
+    const opsi = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    document.getElementById('current-date').innerText = new Date().toLocaleDateString('id-ID', opsi);
+</script>
+
+</body>
+</html>

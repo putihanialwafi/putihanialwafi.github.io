@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas 4: Manajemen Koleksi Buku - EDUTRAIL LIBRARY</title>
+    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #6b4527;
+            --secondary: #c8a97e;
+            --dark: #3a2416;
+            --light: #f7efe6;
+            --accent: #8b5e3c;
+            --black-coffee: #1a100a;
+            --error: #e74c3c;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background-color: #f0f2f5; color: #3e2a1c; line-height: 1.6; }
+
+        /* ===== HEADER & TOP BAR (Sesuai Homepage) ===== */
+        .top-bar {
+            background: var(--black-coffee);
+            color: var(--secondary);
+            padding: 8px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+        }
+        header {
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(135deg, var(--dark), var(--black-coffee));
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo-area { display: flex; align-items: center; gap: 12px; }
+        .logo-area img { width: 45px; height: 45px; border-radius: 50%; border: 2px solid var(--secondary); }
+        .logo-text h2 { font-size: 16px; letter-spacing: 1px; }
+
+        /* ===== MAIN CONTENT AREA ===== */
+        .main-content { padding: 40px 5%; text-align: center; }
+        .title-header h1 { font-size: 28px; color: var(--dark); margin-bottom: 5px; }
+        .title-header h3 { font-weight: 400; color: #555; margin-bottom: 5px; }
+        .title-header p { font-weight: 600; color: var(--primary); margin-bottom: 30px; }
+
+        .btn-back {
+            display: inline-block;
+            background: var(--dark);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 20px;
+            transition: 0.3s;
+        }
+        .btn-back:hover { background: var(--black-coffee); }
+
+        /* ===== MANAJEMEN BOX (Sesuai Screenshot) ===== */
+        .management-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: left;
+            max-width: 1200px;
+            margin: 0 auto;
+            border: 1px solid #e0e0e0;
+        }
+        .management-card h2 { color: #4a69bd; margin-bottom: 25px; font-size: 24px; }
+
+        /* Form Input Grid */
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)) 150px;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+        .form-grid input {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            outline: none;
+            font-family: 'Poppins';
+        }
+        .btn-save {
+            background: #4a69bd;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .btn-save:hover { background: #324e96; }
+
+        /* Search Bar */
+        .search-box { width: 300px; margin-bottom: 20px; }
+        .search-box input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-family: 'Poppins';
+        }
+
+        /* Table Styling */
+        .table-container { overflow-x: auto; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+        th {
+            background: #4a69bd;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+        .btn-delete {
+            color: var(--error);
+            font-weight: bold;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-family: 'Poppins';
+        }
+
+        /* ===== FOOTER (Sesuai Homepage) ===== */
+        footer {
+            background: var(--black-coffee);
+            color: #d1bfa7;
+            padding: 60px 8% 30px;
+            margin-top: 50px;
+        }
+        .footer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .footer-col h4 { color: white; margin-bottom: 20px; }
+        .dosen-info { margin-top: 30px; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; font-style: italic; }
+    </style>
+</head>
+<body>
+
+<div class="top-bar">
+    <div><i class="material-icons" style="font-size: 14px;">database</i> Database Management System</div>
+    <div>Puti Hani Alwafi (230709021 / A)</div>
+</div>
+
+<header>
+    <div class="logo-area">
+        <img src="logo.png.png" alt="Logo">
+        <div class="logo-text">
+            <h2>EDUTRAIL LIBRARY</h2>
+        </div>
+    </div>
+    <nav>
+        <a href="tugas-kuliah.html" style="color:#e6d3b2; text-decoration:none; font-size:13px;">Kembali ke Menu Tugas</a>
+    </nav>
+</header>
+
+<section class="main-content">
+    <div class="title-header">
+        <h1>Tugas Pemrograman Website Perpustakaan</h1>
+        <h3>Mahasiswa Perpustakaan dan Sains Informasi</h3>
+        <p>Puti Hani Alwafi (230709021 / A)</p>
+    </div>
+
+    <a href="tugas-kuliah.html" class="btn-back">Kembali ke Halaman Awal</a>
+
+    <div class="management-card">
+        <h2>Manajemen Koleksi Buku</h2>
+
+        <div class="form-grid">
+            <input type="text" id="in-judul" placeholder="Judul Buku">
+            <input type="text" id="in-pengarang" placeholder="Pengarang">
+            <input type="text" id="in-penerbit" placeholder="Penerbit">
+            <input type="number" id="in-tahun" placeholder="Tahun">
+            <button class="btn-save" onclick="tambahBuku()">SIMPAN BUKU</button>
+        </div>
+
+        <div class="search-box">
+            <input type="text" id="search-input" onkeyup="filterBuku()" placeholder="Cari Judul / Pengarang / Penerbit...">
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 50px;">No</th>
+                        <th>Judul</th>
+                        <th>Pengarang</th>
+                        <th>Penerbit</th>
+                        <th style="width: 100px;">Tahun</th>
+                        <th style="width: 100px;">Aksi</th>
+                    </tr>
+                </thead>
+                <tbody id="book-table-body">
+                    </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>EDUTRAIL LIBRARY</h4>
+            <p style="font-size: 13px;">Sistem Manajemen Database Koleksi Buku Digital.</p>
+        </div>
+        <div class="footer-col" style="text-align: right;">
+            <h4>Dosen Pengampu</h4>
+            <p style="font-size: 14px;">Himma Dewiyana ST., M.Hum.</p>
+        </div>
+    </div>
+    <div class="dosen-info">
+        &copy; 2026 Edutrail Library. Dikembangkan oleh Puti Hani Alwafi.
+    </div>
+</footer>
+
+<script>
+    // Data Awal (Buku Bertema TOEFL & Beasiswa)
+    let koleksiBuku = [
+        { judul: "Barron's TOEFL iBT 17th Edition", pengarang: "Pamela J. Sharpe", penerbit: "Barron's Educational Series", tahun: 2020 },
+        { judul: "Official Guide to the TOEFL Test", pengarang: "ETS", penerbit: "McGraw-Hill Education", tahun: 2021 },
+        { judul: "Longman Preparation Course for the TOEFL", pengarang: "Deborah Phillips", penerbit: "Pearson Education", tahun: 2019 },
+        { judul: "Scholarship Guide: Study Abroad", pengarang: "Schoters Team", penerbit: "Bentang Pustaka", tahun: 2022 },
+        { judul: "The Ultimate Guide to IELTS", pengarang: "Cambridge English", penerbit: "Cambridge University Press", tahun: 2023 }
+    ];
+
+    // Fungsi menampilkan data ke tabel
+    function tampilkanBuku(data) {
+        const tableBody = document.getElementById('book-table-body');
+        tableBody.innerHTML = "";
+
+        data.forEach((buku, index) => {
+            const row = `<tr>
+                <td>${index + 1}</td>
+                <td>${buku.judul}</td>
+                <td>${buku.pengarang}</td>
+                <td>${buku.penerbit}</td>
+                <td>${buku.tahun}</td>
+                <td><button class="btn-delete" onclick="hapusBuku(${index})">Hapus</button></td>
+            </tr>`;
+            tableBody.innerHTML += row;
+        });
+    }
+
+    // Fungsi Tambah Buku
+    function tambahBuku() {
+        const judul = document.getElementById('in-judul').value;
+        const pengarang = document.getElementById('in-pengarang').value;
+        const penerbit = document.getElementById('in-penerbit').value;
+        const tahun = document.getElementById('in-tahun').value;
+
+        if(judul && pengarang && penerbit && tahun) {
+            koleksiBuku.push({ judul, pengarang, penerbit, tahun });
+            tampilkanBuku(koleksiBuku);
+            // Reset Form
+            document.getElementById('in-judul').value = "";
+            document.getElementById('in-pengarang').value = "";
+            document.getElementById('in-penerbit').value = "";
+            document.getElementById('in-tahun').value = "";
+        } else {
+            alert("Mohon lengkapi semua data buku!");
+        }
+    }
+
+    // Fungsi Hapus Buku
+    function hapusBuku(index) {
+        if(confirm("Apakah Anda yakin ingin menghapus buku ini?")) {
+            koleksiBuku.splice(index, 1);
+            tampilkanBuku(koleksiBuku);
+        }
+    }
+
+    // Fungsi Filter/Pencarian Real-time
+    function filterBuku() {
+        const keyword = document.getElementById('search-input').value.toLowerCase();
+        const hasilFilter = koleksiBuku.filter(buku => {
+            return buku.judul.toLowerCase().includes(keyword) || 
+                   buku.pengarang.toLowerCase().includes(keyword) || 
+                   buku.penerbit.toLowerCase().includes(keyword) ||
+                   buku.tahun.toString().includes(keyword);
+        });
+        tampilkanBuku(hasilFilter);
+    }
+
+    // Jalankan tampilan awal
+    tampilkanBuku(koleksiBuku);
+</script>
+
+</body>
+</html>

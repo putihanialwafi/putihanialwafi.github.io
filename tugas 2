@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas 2: Kalkulator Sederhana - EDUTRAIL LIBRARY</title>
+    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #6b4527;
+            --secondary: #c8a97e;
+            --dark: #3a2416;
+            --light: #f7efe6;
+            --accent: #8b5e3c;
+            --black-coffee: #1a100a;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background-color: #fffaf3; color: #3e2a1c; line-height: 1.6; }
+
+        /* ===== HEADER & TOP BAR (Sesuai Homepage) ===== */
+        .top-bar {
+            background: var(--black-coffee);
+            color: var(--secondary);
+            padding: 8px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+        }
+        header {
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(135deg, var(--dark), var(--black-coffee));
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo-area { display: flex; align-items: center; gap: 12px; }
+        .logo-area img { width: 45px; height: 45px; border-radius: 50%; border: 2px solid var(--secondary); }
+        .logo-text h2 { font-size: 16px; letter-spacing: 1px; line-height: 1; }
+        .logo-text span { font-size: 10px; color: var(--secondary); text-transform: uppercase; }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #e6d3b2;
+            font-size: 13px;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        /* ===== AREA KALKULATOR ===== */
+        .calculator-section {
+            padding: 60px 5%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 70vh;
+        }
+
+        .calc-container {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border: 1px solid var(--secondary);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .calc-container h3 {
+            text-align: center;
+            color: var(--dark);
+            margin-bottom: 25px;
+            border-bottom: 2px solid var(--light);
+            padding-bottom: 10px;
+        }
+
+        .input-group { margin-bottom: 15px; }
+        .input-group label { display: block; font-size: 14px; margin-bottom: 5px; font-weight: 600; }
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-family: 'Poppins';
+            outline: none;
+        }
+        .input-group input:focus { border-color: var(--secondary); }
+
+        .ops-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .btn-op {
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            background: var(--light);
+            color: var(--dark);
+            font-weight: bold;
+            font-size: 18px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn-op:hover { background: var(--secondary); color: white; }
+
+        .result-box {
+            margin-top: 20px;
+            padding: 20px;
+            background: var(--black-coffee);
+            color: var(--secondary);
+            border-radius: 10px;
+            text-align: center;
+        }
+        .result-box span { font-size: 24px; font-weight: 700; display: block; color: white; }
+
+        .btn-clear {
+            width: 100%;
+            margin-top: 10px;
+            padding: 10px;
+            background: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-family: 'Poppins';
+        }
+
+        /* ===== FOOTER (Sesuai Homepage) ===== */
+        footer {
+            background: var(--black-coffee);
+            color: #d1bfa7;
+            padding: 60px 8% 30px;
+            margin-top: 50px;
+        }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; }
+        .footer-col h4 { color: white; margin-bottom: 20px; position: relative; }
+        .footer-col h4::after { content:''; position:absolute; left:0; bottom:-5px; width:30px; height:2px; background:var(--secondary); }
+        .copyright { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 13px; margin-top: 30px;}
+    </style>
+</head>
+<body>
+
+<div class="top-bar">
+    <div><i class="material-icons" style="font-size: 14px;">location_on</i> Medan, Indonesia</div>
+    <div>Puti Hani Alwafi (230709021/ A)</div>
+</div>
+
+<header>
+    <div class="logo-area">
+        <img src="logo.png.png" alt="Logo">
+        <div class="logo-text">
+            <h2>EDUTRAIL LIBRARY</h2>
+            <span>Pathway to Knowledge</span>
+        </div>
+    </div>
+    <nav class="nav-menu">
+        <a href="tugas-kuliah.html">Kembali ke Daftar Tugas</a>
+    </nav>
+</header>
+
+<section class="calculator-section">
+    <div class="calc-container">
+        <h3>Kalkulator Sederhana</h3>
+        
+        <div class="input-group">
+            <label>Angka Pertama</label>
+            <input type="number" id="num1" placeholder="Masukkan angka...">
+        </div>
+
+        <div class="input-group">
+            <label>Angka Kedua</label>
+            <input type="number" id="num2" placeholder="Masukkan angka...">
+        </div>
+
+        <div class="ops-grid">
+            <button class="btn-op" onclick="hitung('+')">+</button>
+            <button class="btn-op" onclick="hitung('-')">-</button>
+            <button class="btn-op" onclick="hitung('*')">×</button>
+            <button class="btn-op" onclick="hitung('/')">÷</button>
+        </div>
+
+        <div class="result-box">
+            <p>Hasil Perhitungan:</p>
+            <span id="hasil">0</span>
+        </div>
+
+        <button class="btn-clear" onclick="hapus()">Reset</button>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>EDUTRAIL LIBRARY</h4>
+            <p style="font-size: 13px;">Tugas Pemrograman Website Perpustakaan</p>
+        </div>
+        <div class="footer-col">
+            <h4>Dosen Pengampu</h4>
+            <p style="font-size: 14px;">Himma Dewiyana ST., M.Hum.</p>
+        </div>
+    </div>
+    <div class="copyright">
+        &copy; 2026 Edutrail Library. Dikembangkan oleh Puti Hani Alwafi.
+    </div>
+</footer>
+
+<script>
+    function hitung(operator) {
+        const n1 = parseFloat(document.getElementById('num1').value);
+        const n2 = parseFloat(document.getElementById('num2').value);
+        let res = 0;
+
+        if (isNaN(n1) || isNaN(n2)) {
+            alert("Harap masukkan kedua angka!");
+            return;
+        }
+
+        switch (operator) {
+            case '+': res = n1 + n2; break;
+            case '-': res = n1 - n2; break;
+            case '*': res = n1 * n2; break;
+            case '/': 
+                res = n2 !== 0 ? n1 / n2 : "Tak Terhingga"; 
+                break;
+        }
+
+        // Tampilkan hasil dan perbarui secara otomatis
+        document.getElementById('hasil').innerText = res;
+    }
+
+    function hapus() {
+        document.getElementById('num1').value = '';
+        document.getElementById('num2').value = '';
+        document.getElementById('hasil').innerText = '0';
+    }
+</script>
+
+</body>
+</html>
