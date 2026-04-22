@@ -157,13 +157,6 @@
             <a href="#">Tentang <i class="material-icons" style="font-size: 12px;">expand_more</i></a>
             <div class="dropdown-content">
                 <a href="tugas-kuliah.html">Tugas Kuliah</a>
-                <a href="#" style="background: rgba(200, 169, 126, 0.2); color: white;">Tugas Kuliah <i class="material-icons" style="font-size: 14px; vertical-align: middle;">expand_more</i></a>
-            <div class="dropdown-content">
-                <a href="#" onclick="tampilTugas('tugas1')">Tugas 1</a>
-                <a href="#" onclick="tampilTugas('tugas2')">Tugas 2</a>
-                <a href="#" onclick="tampilTugas('tugas3')">Tugas 3</a>
-                <a href="#" onclick="tampilTugas('tugas4')">Tugas 4</a>
-            </div>
             </div>
         </div>
         <a href="Profil.html">Profil</a>
@@ -172,6 +165,35 @@
     </nav>
 </header>
 
+<section class="tugas-section">
+    <div class="tugas-header" id="tugas-header-text">
+        <h1>Tugas Pemrograman Website Perpustakaan</h1>
+        <h3>Mahasiswa Perpustakaan dan Sains Informasi</h3>
+        <p class="nama">Puti Hani Alwafi (230709021/ A)</p>
+    </div>
+
+    <div class="grid-tugas" id="main-grid">
+        <div class="card-tugas" onclick="tampilTugas('tugas1.html')">
+            <i class="material-icons">history</i>
+            <h4>Tugas 1</h4>
+            <p>Looping 1000 Hari</p>
+        </div>
+        <div class="card-tugas" onclick="tampilTugas('tugas2.html')">
+            <i class="material-icons">calculate</i>
+            <h4>Tugas 2</h4>
+            <p>Kalkulator Sederhana</p>
+        </div>
+        <div class="card-tugas" onclick="tampilTugas('tugas2.html')">
+            <i class="material-icons">login</i>
+            <h4>Tugas 3</h4>
+            <p>Logika Login</p>
+        </div>
+        <div class="card-tugas" onclick="tampilTugas('tugas2.html')">
+            <i class="material-icons">storage</i>
+            <h4>Tugas 4</h4>
+            <p>Manajemen Database</p>
+        </div>
+    </div>
 
     <div id="view-area">
         <button class="btn-back" onclick="tutupTugas()">← Kembali ke Daftar Tugas</button>
